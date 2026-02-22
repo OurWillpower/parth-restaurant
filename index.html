@@ -541,33 +541,39 @@
             margin-bottom: 24px;
         }
 
+        /* Auto-scroll track — clips to a fixed-height window */
+        .gallery-track-outer {
+            overflow: hidden;
+            border-radius: var(--radius-md);
+            background: var(--cream-dark);
+            padding: 14px 0;
+            position: relative;
+        }
+
         .gallery-scroll {
             display: flex;
             gap: 14px;
-            overflow-x: auto;
-            padding: 6px 4px 16px;
-            scrollbar-width: thin;
-            scrollbar-color: var(--gold) var(--cream-mid);
-            scroll-snap-type: x mandatory;
+            padding: 4px 14px;
+            /* NO overflow: auto — JS moves the inner strip */
+            width: max-content;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
         }
-
-        .gallery-scroll::-webkit-scrollbar { height: 3px; }
-        .gallery-scroll::-webkit-scrollbar-track { background: var(--cream-mid); border-radius: 2px; }
-        .gallery-scroll::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
 
         .gallery-item {
             flex-shrink: 0;
-            scroll-snap-align: start;
-            border-radius: var(--radius-md);
+            width: 240px;
+            height: 200px;
+            border-radius: var(--radius-sm);
             overflow: hidden;
             position: relative;
             cursor: pointer;
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow-md);
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .gallery-item:hover {
-            transform: translateY(-5px) scale(1.02);
+            transform: translateY(-4px) scale(1.03);
             box-shadow: var(--shadow-lg);
         }
 
@@ -578,9 +584,51 @@
             display: block;
         }
 
-        .gallery-item.wide  { width: 280px; height: 200px; }
-        .gallery-item.tall  { width: 200px; height: 260px; }
-        .gallery-item.sq    { width: 220px; height: 220px; }
+        /* Remove old size variants — all uniform now */
+        .gallery-item.wide,
+        .gallery-item.tall,
+        .gallery-item.sq { width: 240px; height: 200px; }
+
+        /* Gallery nav arrows */
+        .gallery-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .gallery-nav-btn {
+            width: 38px; height: 38px;
+            border-radius: 50%;
+            background: var(--gold);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .gallery-nav-btn:hover { background: var(--gold-light); transform: scale(1.1); }
+
+        .gallery-pause-btn {
+            width: 38px; height: 38px;
+            border-radius: 50%;
+            background: var(--ink);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            transition: background 0.2s;
+        }
+
+        .gallery-pause-btn:hover { background: var(--ink-soft); }
 
         /* ════════════════════════════════════════════
            FEATURE CARDS (3-col scroll)
@@ -1460,46 +1508,33 @@
                 <span class="eyebrow">Photo Gallery</span>
                 <h2 class="section-heading">A Glimpse of <em>Parth RBR</em></h2>
             </div>
-            <div class="gallery-scroll" id="galleryScroll">
-                <div class="gallery-item wide" data-index="0">
-                    <img src="parth 1.webp" alt="Parth RBR">
+            <div class="gallery-track-outer" id="galleryOuter">
+                <div class="gallery-scroll" id="galleryScroll">
+                    <div class="gallery-item" data-index="0"><img src="parth 1.webp" alt="Parth RBR"></div>
+                    <div class="gallery-item" data-index="1"><img src="parth 2.webp" alt="Parth RBR"></div>
+                    <div class="gallery-item" data-index="2"><img src="parth 3.webp" alt="Parth RBR"></div>
+                    <div class="gallery-item" data-index="3"><img src="parth 4.webp" alt="Parth RBR"></div>
+                    <div class="gallery-item" data-index="4"><img src="parth 5.webp" alt="Parth RBR"></div>
+                    <div class="gallery-item" data-index="5"><img src="parth 6.webp" alt="Parth RBR"></div>
+                    <div class="gallery-item" data-index="6"><img src="parth 7.webp" alt="Parth RBR"></div>
+                    <div class="gallery-item" data-index="7"><img src="parth 8.webp" alt="Parth RBR"></div>
+                    <div class="gallery-item" data-index="8"><img src="parth 9.webp" alt="Parth RBR"></div>
+                    <div class="gallery-item" data-index="9"><img src="parth 10.webp" alt="Parth RBR"></div>
+                    <div class="gallery-item" data-index="10"><img src="parth 11.webp" alt="Parth RBR"></div>
+                    <div class="gallery-item" data-index="11"><img src="parth 12.webp" alt="Parth RBR"></div>
+                    <div class="gallery-item" data-index="12"><img src="parth 13.webp" alt="Parth RBR"></div>
+                    <!-- Clones for seamless infinite loop -->
+                    <div class="gallery-item clone"><img src="parth 1.webp" alt="Parth RBR"></div>
+                    <div class="gallery-item clone"><img src="parth 2.webp" alt="Parth RBR"></div>
+                    <div class="gallery-item clone"><img src="parth 3.webp" alt="Parth RBR"></div>
+                    <div class="gallery-item clone"><img src="parth 4.webp" alt="Parth RBR"></div>
+                    <div class="gallery-item clone"><img src="parth 5.webp" alt="Parth RBR"></div>
                 </div>
-                <div class="gallery-item tall" data-index="1">
-                    <img src="parth 2.webp" alt="Parth RBR">
-                </div>
-                <div class="gallery-item sq" data-index="2">
-                    <img src="parth 3.webp" alt="Parth RBR">
-                </div>
-                <div class="gallery-item wide" data-index="3">
-                    <img src="parth 4.webp" alt="Parth RBR">
-                </div>
-                <div class="gallery-item tall" data-index="4">
-                    <img src="parth 5.webp" alt="Parth RBR">
-                </div>
-                <div class="gallery-item sq" data-index="5">
-                    <img src="parth 6.webp" alt="Parth RBR">
-                </div>
-                <div class="gallery-item wide" data-index="6">
-                    <img src="parth 7.webp" alt="Parth RBR">
-                </div>
-                <div class="gallery-item tall" data-index="7">
-                    <img src="parth 8.webp" alt="Parth RBR">
-                </div>
-                <div class="gallery-item sq" data-index="8">
-                    <img src="parth 9.webp" alt="Parth RBR">
-                </div>
-                <div class="gallery-item wide" data-index="9">
-                    <img src="parth 10.webp" alt="Parth RBR">
-                </div>
-                <div class="gallery-item sq" data-index="10">
-                    <img src="parth 11.webp" alt="Parth RBR">
-                </div>
-                <div class="gallery-item tall" data-index="11">
-                    <img src="parth 12.webp" alt="Parth RBR">
-                </div>
-                <div class="gallery-item wide" data-index="12">
-                    <img src="parth 13.webp" alt="Parth RBR">
-                </div>
+            </div>
+            <div class="gallery-nav">
+                <button class="gallery-nav-btn" id="galleryPrev"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="gallery-pause-btn" id="galleryPause"><i class="fa-solid fa-pause" id="pauseIcon"></i></button>
+                <button class="gallery-nav-btn" id="galleryNext"><i class="fa-solid fa-chevron-right"></i></button>
             </div>
         </div>
     </section>
@@ -1625,21 +1660,21 @@
         </div>
         <div class="rooms-grid">
             <div class="room-card reveal">
-                <img src="parth 10.webp" alt="AC Room">
+                <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=900&auto=format&fit=crop" alt="AC Room">
                 <div class="room-card-overlay"></div>
                 <span class="room-badge">AC</span>
                 <div class="room-card-info">
                     <div class="room-card-title">AC Rooms</div>
-                    <div class="room-card-detail">Cool Comfort · Full Amenities</div>
+                    <div class="room-card-detail">Cool Comfort · Full Amenities · Peaceful Stay</div>
                 </div>
             </div>
             <div class="room-card reveal reveal-delay-1">
-                <img src="parth 12.webp" alt="Non-AC Room">
+                <img src="https://images.unsplash.com/photo-1586105251261-72a756497a11?q=80&w=900&auto=format&fit=crop" alt="Non-AC Room">
                 <div class="room-card-overlay"></div>
                 <span class="room-badge" style="background: var(--green-mid);">Non-AC</span>
                 <div class="room-card-info">
                     <div class="room-card-title">Non-AC Rooms</div>
-                    <div class="room-card-detail">Natural Breeze · Budget Friendly</div>
+                    <div class="room-card-detail">Natural Breeze · Clean & Comfortable · Budget Friendly</div>
                 </div>
             </div>
         </div>
@@ -1858,16 +1893,85 @@
             topNav.classList.toggle('scrolled', window.scrollY > 60);
         });
 
-        // ── LIGHTBOX ────────────────────────────
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        const lb     = document.getElementById('lightbox');
-        const lbImg  = document.getElementById('lbImg');
-        const lbClose = document.getElementById('lbClose');
-        const lbPrev = document.getElementById('lbPrev');
-        const lbNext = document.getElementById('lbNext');
-        let lbIndex  = 0;
+        // ── AUTO-SCROLL GALLERY ──────────────────
+        const galleryScroll  = document.getElementById('galleryScroll');
+        const ITEM_W         = 240 + 14; // width + gap
+        const TOTAL_REAL     = 13;       // real images
+        const SCROLL_STEP    = ITEM_W;   // move one card at a time
+        let   galOffset      = 0;
+        let   galRunning     = true;
+        let   galAutoTimer;
 
-        const galleryImages = Array.from(galleryItems).map(item => item.querySelector('img').src);
+        function galMoveTo(offset, animated) {
+            galleryScroll.style.transition = animated ? 'transform 0.6s cubic-bezier(0.4,0,0.2,1)' : 'none';
+            galleryScroll.style.transform  = `translateX(-${offset}px)`;
+        }
+
+        function galNext() {
+            galOffset += SCROLL_STEP;
+            galMoveTo(galOffset, true);
+            // Seamless loop — if we passed the last real card, jump back silently
+            const maxOffset = ITEM_W * TOTAL_REAL;
+            if (galOffset >= maxOffset) {
+                setTimeout(() => {
+                    galOffset = 0;
+                    galMoveTo(galOffset, false);
+                }, 650);
+            }
+        }
+
+        function galPrev() {
+            if (galOffset <= 0) {
+                // Jump to end silently then animate back one step
+                galOffset = ITEM_W * TOTAL_REAL;
+                galMoveTo(galOffset, false);
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        galOffset -= SCROLL_STEP;
+                        galMoveTo(galOffset, true);
+                    });
+                });
+            } else {
+                galOffset -= SCROLL_STEP;
+                galMoveTo(galOffset, true);
+            }
+        }
+
+        function startGalAuto() {
+            clearInterval(galAutoTimer);
+            galAutoTimer = setInterval(() => { if (galRunning) galNext(); }, 2200);
+        }
+
+        startGalAuto();
+
+        document.getElementById('galleryNext').addEventListener('click', () => {
+            galNext(); startGalAuto();
+        });
+
+        document.getElementById('galleryPrev').addEventListener('click', () => {
+            galPrev(); startGalAuto();
+        });
+
+        document.getElementById('galleryPause').addEventListener('click', () => {
+            galRunning = !galRunning;
+            const icon = document.getElementById('pauseIcon');
+            icon.className = galRunning ? 'fa-solid fa-pause' : 'fa-solid fa-play';
+        });
+
+        // Pause on hover
+        galleryScroll.addEventListener('mouseenter', () => { galRunning = false; });
+        galleryScroll.addEventListener('mouseleave', () => { galRunning = true; });
+
+        // ── LIGHTBOX (real images only, not clones) ──
+        const realGalleryItems = document.querySelectorAll('.gallery-item[data-index]');
+        const lb      = document.getElementById('lightbox');
+        const lbImg   = document.getElementById('lbImg');
+        const lbClose = document.getElementById('lbClose');
+        const lbPrev  = document.getElementById('lbPrev');
+        const lbNext  = document.getElementById('lbNext');
+        let   lbIndex = 0;
+
+        const galleryImages = Array.from(realGalleryItems).map(item => item.querySelector('img').src);
 
         function openLightbox(idx) {
             lbIndex = idx;
@@ -1886,20 +1990,20 @@
             lbImg.src = galleryImages[lbIndex];
         }
 
-        galleryItems.forEach((item, i) => {
+        realGalleryItems.forEach((item, i) => {
             item.addEventListener('click', () => openLightbox(i));
         });
 
         lbClose.addEventListener('click', closeLightbox);
-        lbPrev.addEventListener('click', () => lbGo(-1));
-        lbNext.addEventListener('click', () => lbGo(1));
+        lbPrev.addEventListener('click',  () => lbGo(-1));
+        lbNext.addEventListener('click',  () => lbGo(1));
         lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
 
         document.addEventListener('keydown', e => {
             if (!lb.classList.contains('open')) return;
-            if (e.key === 'Escape') closeLightbox();
-            if (e.key === 'ArrowLeft') lbGo(-1);
-            if (e.key === 'ArrowRight') lbGo(1);
+            if (e.key === 'Escape')      closeLightbox();
+            if (e.key === 'ArrowLeft')   lbGo(-1);
+            if (e.key === 'ArrowRight')  lbGo(1);
         });
 
         // ── SCROLL REVEAL ────────────────────────
