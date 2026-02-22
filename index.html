@@ -27,39 +27,33 @@
 
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
-        /* --- New Transparent Header --- */
+        /* --- Header --- */
         .top-nav {
             position: absolute;
             top: 0;
             width: 100%;
             z-index: 100;
-            padding: 20px;
+            padding: 15px;
             display: flex;
             justify-content: center;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, transparent 100%);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 100%);
         }
 
         .header-logo {
-            width: 140px;
+            width: 120px;
             height: auto;
-            /* This ensures the logo looks premium even if the file has a white background */
-            mix-blend-mode: multiply; 
-            filter: brightness(1.2);
-            background: rgba(255,255,255,0.8);
-            padding: 10px;
+            background: rgba(255,255,255,0.9);
+            padding: 8px;
             border-radius: 4px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
-        /* --- Hero Slider --- */
+        /* --- Refined Hero Slider --- */
         .hero-slider {
-            height: 85vh;
+            height: 80vh;
             position: relative;
             overflow: hidden;
-            display: flex;
-            align-items: flex-end; /* Moved text to bottom to clear flow */
-            justify-content: center;
-            color: white;
-            text-align: center;
+            background: #000; /* Prevents white gap */
         }
 
         .slide {
@@ -68,43 +62,41 @@
             height: 100%;
             background-size: cover;
             background-position: center;
-            animation: zoomInfinite 20s infinite alternate;
             opacity: 0;
-            transition: opacity 1s ease-in-out;
+            transition: opacity 0.8s ease-in-out; /* Faster cross-fade */
+            transform: scale(1.05);
+            transition: opacity 0.8s ease-in-out, transform 4s linear;
         }
 
-        .slide.active { opacity: 1; }
-
-        @keyframes zoomInfinite {
-            from { transform: scale(1); }
-            to { transform: scale(1.1); }
+        .slide.active { 
+            opacity: 1; 
+            transform: scale(1);
         }
 
         .hero-overlay {
             position: absolute;
             z-index: 5;
-            background: linear-gradient(transparent 40%, rgba(0,0,0,0.8) 100%);
+            background: linear-gradient(transparent 50%, rgba(0,0,0,0.85) 100%);
             width: 100%;
             height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
             align-items: center;
-            padding-bottom: 80px;
+            padding-bottom: 60px;
+            color: white;
+            text-align: center;
         }
 
-        .hero-title {
-            font-size: 2.2rem;
-            margin-bottom: 5px;
-            letter-spacing: 2px;
-        }
+        .hero-title { font-size: 2.5rem; letter-spacing: 3px; }
+        .gold-line { width: 50px; height: 2px; background: var(--accent-gold); margin: 12px auto; }
 
-        /* --- USP Floating Bar --- */
+        /* --- USP Bar --- */
         .usp-container {
             display: flex;
             background: var(--white);
             padding: 20px 10px;
-            margin: -30px 15px 0 15px;
+            margin: -25px 15px 0 15px;
             border-radius: 12px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
             position: relative;
@@ -114,62 +106,63 @@
         .usp-item {
             flex: 1;
             text-align: center;
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             font-weight: 700;
             text-transform: uppercase;
             color: var(--nature-green);
         }
 
-        .usp-item i { font-size: 1.3rem; display: block; margin-bottom: 5px; color: var(--accent-gold); }
+        .usp-item i { font-size: 1.2rem; display: block; margin-bottom: 5px; color: var(--accent-gold); }
 
-        /* --- Sections --- */
+        /* --- Content --- */
         .section { padding: 60px 20px; }
         .center { text-align: center; }
-        .gold-line { width: 50px; height: 2px; background: var(--accent-gold); margin: 15px auto; }
 
-        /* --- Specialization Cards --- */
+        /* --- Specialization Scrolling Cards --- */
         .spec-scroll {
             display: flex;
             overflow-x: auto;
             gap: 15px;
-            padding: 10px 0 30px 0;
+            padding: 20px 5px;
             scrollbar-width: none;
         }
         .spec-scroll::-webkit-scrollbar { display: none; }
 
         .spec-card {
-            min-width: 280px;
+            min-width: 260px;
             background: white;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
-        .spec-img { height: 180px; background-size: cover; background-position: center; }
-        .spec-content { padding: 20px; }
-        .spec-content h3 { font-size: 1.2rem; color: var(--nature-green); margin-bottom: 5px; }
+        .spec-img { height: 160px; background-size: cover; background-position: center; }
+        .spec-content { padding: 15px; }
+        .spec-content h3 { font-size: 1.1rem; color: var(--nature-green); }
 
-        /* --- Address Section --- */
-        .address-box {
-            background: #f0f0f0;
-            padding: 40px 20px;
-            font-size: 0.9rem;
+        /* --- Info Box --- */
+        .info-panel {
+            background: var(--primary-dark);
+            color: white;
+            padding: 40px 25px;
+            margin: 20px;
+            border-radius: 20px;
         }
 
-        /* --- Navigation --- */
+        /* --- Nav Dock --- */
         .nav-dock {
             position: fixed;
             bottom: 15px;
             left: 50%;
             transform: translateX(-50%);
             width: 92%;
-            background: rgba(18, 18, 18, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(18, 18, 18, 0.98);
             display: flex;
             justify-content: space-around;
             padding: 12px;
             border-radius: 50px;
             z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .nav-link { text-decoration: none; color: white; font-size: 0.65rem; text-align: center; }
@@ -183,7 +176,7 @@
             text-decoration: none;
             display: inline-block;
             font-weight: 600;
-            margin-top: 20px;
+            margin-top: 15px;
         }
     </style>
 </head>
@@ -194,67 +187,61 @@
     </nav>
 
     <header class="hero-slider">
-        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=2070&auto=format&fit=crop');"></div>
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1598910484518-e39d56738980?q=80&w=1974&auto=format&fit=crop');"></div>
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=2070&auto=format&fit=crop');"></div>
-        
-        <div class="hero-overlay">
+        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1542223175-75829c56f70d?q=80&w=1000&auto=format&fit=crop');"></div> <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1000&auto=format&fit=crop');"></div> <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1626132646529-500337552978?q=80&w=1000&auto=format&fit=crop');"></div> <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1000&auto=format&fit=crop');"></div> <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=1000&auto=format&fit=crop');"></div> <div class="hero-overlay">
             <h1 class="hero-title">PARTH</h1>
             <div class="gold-line"></div>
-            <p style="font-style: italic; opacity: 0.9;">Homely Satisfaction, Away From Home.</p>
+            <p style="font-style: italic; font-weight: 300;">Authentic. Safe. Serene.</p>
         </div>
     </header>
 
     <div class="usp-container">
         <div class="usp-item"><i class="fa-solid fa-venus"></i>Women Managed</div>
         <div class="usp-item"><i class="fa-solid fa-leaf"></i>No Chemicals</div>
-        <div class="usp-item"><i class="fa-solid fa-shield-heart"></i>Safe Haven</div>
+        <div class="usp-item"><i class="fa-solid fa-shield-heart"></i>Safe & Secure</div>
     </div>
 
     <section class="section">
-        <h2 class="center">Our Specialisations</h2>
+        <h2 class="center">Experience Tradition</h2>
         <div class="gold-line"></div>
-        
         <div class="spec-scroll">
             <div class="spec-card">
-                <div class="spec-img" style="background-image: url('https://images.unsplash.com/photo-1613292443284-8d10ef9383fe?q=80&w=600&auto=format&fit=crop');"></div>
+                <div class="spec-img" style="background-image: url('https://images.unsplash.com/photo-1589187151032-573a91317445?q=80&w=600&auto=format&fit=crop');"></div>
                 <div class="spec-content">
-                    <h3>Authentic Konkani</h3>
-                    <p>Traditional flavors prepared with specialized chefs. No artificial colors or harsh chemicals.</p>
+                    <h3>Homely Food</h3>
+                    <p>Traditional Konkani multifaceted cuisine by specialized chefs.</p>
                 </div>
             </div>
             <div class="spec-card">
-                <div class="spec-img" style="background-image: url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=600&auto=format&fit=crop');"></div>
+                <div class="spec-img" style="background-image: url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=600&auto=format&fit=crop');"></div>
                 <div class="spec-content">
-                    <h3>2-Acre Serenity</h3>
-                    <p>Relax beneath Mango and Kaju trees. Complete silence away from highway noise.</p>
+                    <h3>Spacious Stay</h3>
+                    <p>AC and Non-AC rooms designed for complete silence.</p>
                 </div>
             </div>
             <div class="spec-card">
-                <div class="spec-img" style="background-image: url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=600&auto=format&fit=crop');"></div>
+                <div class="spec-img" style="background-image: url('https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=600&auto=format&fit=crop');"></div>
                 <div class="spec-content">
                     <h3>Premium Bar</h3>
-                    <p>A sophisticated lounge offering the widest range of liquors for a perfect tour experience.</p>
+                    <p>Widest range of liquors for a truly relaxing tour experience.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section center" style="background: white;">
-        <h2>Lodging & Boarding</h2>
+    <div class="info-panel center">
+        <h3>2 Acres of Greenery</h3>
+        <p style="margin: 15px 0; opacity: 0.9; font-weight: 300;">Relax beneath Mango and Kaju trees in a 100% safe environment for women, kids, and senior citizens.</p>
         <div class="gold-line"></div>
-        <p>Extra spacious AC and Non-AC rooms designed for complete safety and tranquility.</p>
-        <a href="tel:+919987456703" class="btn-gold">Book a Room</a>
-    </section>
+        <p>Banquet Hall for 200 People</p>
+    </div>
 
-    <section class="address-box center">
+    <section class="section center">
         <i class="fa-solid fa-location-dot" style="font-size: 2rem; color: var(--accent-gold); margin-bottom: 10px;"></i>
-        <h3>Visit Us</h3>
-        <p style="margin: 15px 0; color: #555;">
+        <p style="font-size: 0.85rem; color: #555;">
             Mumbai - Goa Highway NH 66, Titha Flyover,<br>
-            next to Kasarde, Jambhulgaon, Maharashtra 416810
+            Jambhulgaon, Maharashtra 416810
         </p>
-        <a href="https://share.google/A8innDKwD6UXdOhOD" target="_blank" style="color: var(--nature-green); font-weight: bold; text-decoration: none;">Open in Google Maps →</a>
+        <a href="tel:+919987456703" class="btn-gold">Enquire Now</a>
     </section>
 
     <div style="height: 100px;"></div>
@@ -262,7 +249,7 @@
     <nav class="nav-dock">
         <a href="#" class="nav-link"><i class="fa-solid fa-house"></i>Home</a>
         <a href="tel:+919987456703" class="nav-link"><i class="fa-solid fa-phone"></i>Call</a>
-        <a href="https://wa.me/919987456703" class="nav-link"><i class="fa-brands fa-whatsapp"></i>WhatsApp</a>
+        <a href="https://wa.me/919987456703" class="nav-link"><i class="fa-brands fa-whatsapp"></i>Chat</a>
         <a href="https://share.google/A8innDKwD6UXdOhOD" class="nav-link"><i class="fa-solid fa-map-location-dot"></i>Locate</a>
     </nav>
 
@@ -274,7 +261,7 @@
             currentSlide = (currentSlide + 1) % slides.length;
             slides[currentSlide].classList.add('active');
         }
-        setInterval(nextSlide, 5000);
+        setInterval(nextSlide, 4000); // 4 seconds total, 0.8s for the fade
     </script>
 
 </body>
