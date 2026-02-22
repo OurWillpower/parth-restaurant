@@ -3,41 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parth RBR | Authentic Konkani Hospitality</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Parth RBR | Authentic Konkani Hospitality — Restaurant · Bar · Rooms</title>
+    <meta name="description" content="Parth RBR at Titha Flyover Junction, Konkan. Authentic Konkani cuisine, premium bar, comfortable rooms on 2 acres of mango and kaju grove. Women managed. Chemical free food.">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <style>
+        /* ════════════════════════════════════════════
+           ROOT VARIABLES & RESET
+        ════════════════════════════════════════════ */
         :root {
-            --ink: #1a1a14;
-            --gold: #b8892a;
-            --gold-light: #d4a84b;
-            --cream: #faf7f0;
-            --cream-dark: #f0ebe0;
-            --green-deep: #1e3a10;
-            --green-mid: #2d5416;
-            --green-light: #4a7c28;
-            --terracotta: #c4542a;
-            --white: #ffffff;
+            --ink:          #181810;
+            --ink-soft:     #2e2e22;
+            --gold:         #b8892a;
+            --gold-light:   #d4a84b;
+            --gold-pale:    #f0e0b8;
+            --cream:        #faf8f2;
+            --cream-mid:    #f2ede0;
+            --cream-dark:   #e8e0cc;
+            --green-deep:   #1b3810;
+            --green-mid:    #2d5416;
+            --green-light:  #4a7c28;
+            --white:        #ffffff;
+            --shadow-sm:    0 4px 16px rgba(0,0,0,0.08);
+            --shadow-md:    0 10px 40px rgba(0,0,0,0.13);
+            --shadow-lg:    0 20px 60px rgba(0,0,0,0.18);
+            --shadow-xl:    0 30px 80px rgba(0,0,0,0.22);
+            --radius-sm:    10px;
+            --radius-md:    18px;
+            --radius-lg:    28px;
+            --radius-xl:    40px;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 16px; }
 
         body {
             font-family: 'Jost', sans-serif;
             background: var(--cream);
             color: var(--ink);
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* ══════════════════════════════════════
-           HERO
-        ══════════════════════════════════════ */
+        img { display: block; max-width: 100%; }
+        a { text-decoration: none; color: inherit; }
+
+        /* ════════════════════════════════════════════
+           TYPOGRAPHY HELPERS
+        ════════════════════════════════════════════ */
+        .display {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .serif { font-family: 'Cormorant Garamond', serif; }
+
+        .eyebrow {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .section-heading {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.9rem, 5vw, 2.8rem);
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--ink);
+            margin-bottom: 14px;
+        }
+
+        .section-heading em {
+            font-style: italic;
+            color: var(--green-deep);
+        }
+
+        .body-copy {
+            font-size: 0.93rem;
+            line-height: 1.9;
+            color: #5a5a48;
+        }
+
+        /* ════════════════════════════════════════════
+           ORNAMENTAL DIVIDER
+        ════════════════════════════════════════════ */
+        .ornament {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin: 14px 0 20px;
+        }
+
+        .ornament-line {
+            height: 1px;
+            width: 50px;
+            background: var(--gold);
+            flex-shrink: 0;
+        }
+
+        .ornament-diamond {
+            width: 7px;
+            height: 7px;
+            background: var(--gold);
+            transform: rotate(45deg);
+            flex-shrink: 0;
+        }
+
+        .ornament-center { justify-content: center; }
+
+        /* ════════════════════════════════════════════
+           BUTTONS
+        ════════════════════════════════════════════ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 13px 26px;
+            border-radius: 50px;
+            font-family: 'Jost', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.28s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-gold     { background: var(--gold); color: white; }
+        .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(184,137,42,0.35); }
+
+        .btn-white    { background: white; color: var(--ink); }
+        .btn-white:hover { background: var(--cream); transform: translateY(-2px); }
+
+        .btn-dark     { background: var(--ink); color: white; }
+        .btn-dark:hover { background: var(--ink-soft); transform: translateY(-2px); }
+
+        .btn-outline  { background: transparent; color: white; border: 1.5px solid rgba(255,255,255,0.6); }
+        .btn-outline:hover { background: rgba(255,255,255,0.12); border-color: white; }
+
+        /* ════════════════════════════════════════════
+           TOP NAV
+        ════════════════════════════════════════════ */
+        .top-nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 200;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 24px;
+            background: linear-gradient(to bottom, rgba(10,18,6,0.85) 0%, transparent 100%);
+            backdrop-filter: blur(0px);
+            transition: background 0.4s, backdrop-filter 0.4s, padding 0.4s;
+        }
+
+        .top-nav.scrolled {
+            background: rgba(20, 28, 14, 0.97);
+            backdrop-filter: blur(20px);
+            padding: 10px 24px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+        }
+
+        .logo-wrap {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.45);
+            transition: width 0.3s, height 0.3s;
+            flex-shrink: 0;
+        }
+
+        .top-nav.scrolled .logo-wrap { width: 54px; height: 54px; }
+
+        .logo-wrap img { width: 100%; height: 100%; object-fit: contain; padding: 7px; }
+
+        .nav-right { display: flex; align-items: center; gap: 10px; }
+
+        .nav-pill {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 9px 17px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.25);
+            color: white;
+            backdrop-filter: blur(10px);
+            transition: all 0.28s;
+        }
+
+        .nav-pill:hover { background: var(--gold); border-color: var(--gold); }
+        .nav-pill.green { background: rgba(37,211,102,0.15); border-color: rgba(37,211,102,0.4); color: #25D366; }
+        .nav-pill.green:hover { background: #25D366; color: white; border-color: #25D366; }
+
+        /* ════════════════════════════════════════════
+           HERO SLIDER
+        ════════════════════════════════════════════ */
         .hero {
             position: relative;
             height: 100svh;
-            min-height: 600px;
+            min-height: 620px;
             overflow: hidden;
+            background: var(--green-deep);
         }
 
         .slide {
@@ -46,771 +230,1157 @@
             background-size: cover;
             background-position: center;
             opacity: 0;
-            transition: opacity 2s ease-in-out;
+            transition: opacity 2.2s ease-in-out;
+            will-change: opacity;
         }
+
         .slide.active { opacity: 1; }
 
-        /* Relevant Konkan/nature/food/hospitality images */
-        .slide-1 { background-image: url('https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=85&w=1800'); }
-        .slide-2 { background-image: url('https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=85&w=1800'); }
-        .slide-3 { background-image: url('https://images.unsplash.com/photo-1596797038530-2c107229654b?q=85&w=1800'); }
-        .slide-4 { background-image: url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=85&w=1800'); }
+        /* Using actual uploaded Parth RBR images for hero */
+        .slide-1  { background-image: url('parth 1.webp'); }
+        .slide-2  { background-image: url('parth 2.webp'); }
+        .slide-3  { background-image: url('parth 3.webp'); }
+        .slide-4  { background-image: url('parth 4.webp'); }
+        .slide-5  { background-image: url('parth 5.webp'); }
 
         .hero-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(
-                160deg,
-                rgba(10, 20, 5, 0.45) 0%,
-                rgba(10, 20, 5, 0.2) 40%,
-                rgba(10, 20, 5, 0.75) 100%
-            );
+            background:
+                linear-gradient(to top, rgba(10,18,6,0.92) 0%, rgba(10,18,6,0.4) 45%, rgba(10,18,6,0.25) 100%);
             z-index: 2;
         }
 
-        /* Top nav */
-        .top-nav {
+        /* Slide progress bar */
+        .slide-progress {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 10;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 30px;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: rgba(255,255,255,0.15);
+            z-index: 20;
         }
 
-        .logo-wrap {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 2px solid var(--gold);
-            background: rgba(255,255,255,0.95);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-        }
-
-        .logo-wrap img {
-            width: 100%;
+        .slide-progress-bar {
             height: 100%;
-            object-fit: contain;
-            padding: 6px;
-        }
-
-        .nav-contact {
-            display: flex;
-            gap: 12px;
-        }
-
-        .nav-btn {
-            background: rgba(255,255,255,0.12);
-            border: 1px solid rgba(255,255,255,0.3);
-            color: white;
-            padding: 8px 18px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s;
-        }
-
-        .nav-btn:hover, .nav-btn.gold {
             background: var(--gold);
-            border-color: var(--gold);
+            width: 0%;
+            transition: width linear;
         }
 
-        /* Hero content */
         .hero-content {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: 5;
-            padding: 50px 30px 100px;
-            text-align: center;
+            bottom: 0; left: 0; right: 0;
+            z-index: 10;
+            padding: 40px 28px 110px;
             color: white;
+            text-align: center;
         }
 
         .hero-eyebrow {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
+            font-weight: 600;
             letter-spacing: 5px;
             text-transform: uppercase;
             color: var(--gold-light);
-            font-weight: 500;
-            margin-bottom: 16px;
             display: block;
+            margin-bottom: 14px;
+            opacity: 0;
+            animation: fadeUp 1s 0.3s forwards;
         }
 
         .hero-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(3.2rem, 10vw, 6.5rem);
+            font-size: clamp(3.5rem, 12vw, 7rem);
             font-weight: 700;
-            line-height: 1;
-            letter-spacing: 3px;
+            line-height: 0.95;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            margin-bottom: 6px;
+            color: white;
+            opacity: 0;
+            animation: fadeUp 1s 0.5s forwards;
         }
 
-        .hero-title span {
+        .hero-subtitle {
             display: block;
-            font-size: 0.35em;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(0.9rem, 3vw, 1.3rem);
             font-weight: 400;
             font-style: italic;
-            letter-spacing: 6px;
+            letter-spacing: 5px;
             color: var(--gold-light);
-            margin-top: 8px;
+            margin-top: 10px;
         }
 
-        .ornament {
+        .hero-ornament {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 16px;
-            margin: 20px 0;
+            gap: 18px;
+            margin: 18px 0;
+            opacity: 0;
+            animation: fadeUp 1s 0.7s forwards;
         }
 
-        .ornament-line {
-            width: 60px;
-            height: 1px;
-            background: var(--gold);
-        }
-
-        .ornament-diamond {
-            width: 6px;
-            height: 6px;
-            background: var(--gold);
-            transform: rotate(45deg);
-        }
-
-        .hero-sub {
-            font-size: 0.85rem;
-            letter-spacing: 2px;
-            font-weight: 300;
-            opacity: 0.85;
+        .hero-tagline {
+            font-size: 0.78rem;
+            font-weight: 400;
+            letter-spacing: 3px;
             text-transform: uppercase;
+            opacity: 0.8;
+            opacity: 0;
+            animation: fadeUp 1s 0.9s forwards;
         }
 
-        /* Slide indicators */
+        .hero-cta {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeUp 1s 1.1s forwards;
+        }
+
+        /* Slide dots */
         .slide-dots {
             position: absolute;
-            bottom: 140px;
+            bottom: 76px;
             left: 50%;
             transform: translateX(-50%);
-            z-index: 6;
+            z-index: 15;
             display: flex;
             gap: 8px;
         }
 
         .dot {
-            width: 24px;
+            width: 22px;
             height: 2px;
-            background: rgba(255,255,255,0.4);
+            background: rgba(255,255,255,0.35);
             border-radius: 2px;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.4s;
         }
 
-        .dot.active {
-            background: var(--gold);
-            width: 40px;
-        }
+        .dot.active { width: 44px; background: var(--gold); }
 
-        /* ══════════════════════════════════════
-           FLOATING USP
-        ══════════════════════════════════════ */
+        /* ════════════════════════════════════════════
+           FLOATING USP BAR
+        ════════════════════════════════════════════ */
         .usp-bar {
-            margin: -40px 20px 0;
             position: relative;
-            z-index: 20;
+            z-index: 50;
+            margin: -42px 20px 0;
             background: white;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-xl);
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             overflow: hidden;
         }
 
         .usp-item {
-            padding: 22px 10px;
+            padding: 24px 10px 20px;
             text-align: center;
-            border-right: 1px solid var(--cream-dark);
+            border-right: 1px solid var(--cream-mid);
             transition: background 0.3s;
+            position: relative;
         }
 
-        .usp-item:last-child { border-right: none; }
+        .usp-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+
+        .usp-item:hover::after { width: 60%; }
         .usp-item:hover { background: var(--cream); }
+        .usp-item:last-child { border-right: none; }
 
         .usp-item i {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: var(--gold);
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 9px;
         }
 
         .usp-label {
-            font-size: 0.6rem;
+            font-size: 0.58rem;
             font-weight: 700;
             letter-spacing: 1.5px;
             text-transform: uppercase;
             color: var(--green-deep);
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
-        /* ══════════════════════════════════════
-           SECTION STYLES
-        ══════════════════════════════════════ */
-        .section { padding: 80px 25px; }
-        .section-sm { padding: 50px 25px; }
+        /* ════════════════════════════════════════════
+           SECTION WRAPPER
+        ════════════════════════════════════════════ */
+        .section { padding: 80px 26px; }
+        .section-tight { padding: 50px 26px; }
+        .section-dark { background: var(--ink); color: white; }
+        .section-green { background: var(--green-deep); color: white; }
+        .section-cream { background: var(--cream-mid); }
 
-        .section-tag {
-            font-size: 0.65rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--gold);
-            font-weight: 600;
-            margin-bottom: 12px;
-            display: block;
+        .container { max-width: 960px; margin: 0 auto; }
+
+        /* ════════════════════════════════════════════
+           BOARD / SIGNBOARD BANNER
+        ════════════════════════════════════════════ */
+        .board-banner {
+            margin: 48px 20px 0;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+            height: 220px;
+            box-shadow: var(--shadow-lg);
         }
 
-        .section-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2rem, 6vw, 3rem);
-            font-weight: 700;
-            line-height: 1.15;
-            color: var(--ink);
-            margin-bottom: 16px;
+        .board-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
 
-        .section-title em {
-            color: var(--green-deep);
-            font-style: italic;
-        }
-
-        .divider {
+        .board-banner-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(27,56,16,0.75) 0%, rgba(27,56,16,0.1) 60%);
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 24px;
+            padding: 30px;
         }
 
-        .divider-line { height: 1px; background: var(--gold); width: 40px; }
-        .divider-diamond { width: 5px; height: 5px; background: var(--gold); transform: rotate(45deg); }
-
-        .body-text {
-            font-size: 0.92rem;
-            line-height: 1.85;
-            color: #555;
-            max-width: 560px;
+        .board-text h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.6rem, 5vw, 2.4rem);
+            font-weight: 700;
+            color: white;
+            line-height: 1.2;
         }
 
-        /* ══════════════════════════════════════
-           ABOUT / INTRO
-        ══════════════════════════════════════ */
-        .intro-grid {
+        .board-text p {
+            font-size: 0.8rem;
+            color: var(--gold-pale);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 6px;
+        }
+
+        /* ════════════════════════════════════════════
+           ABOUT / INTRO SECTION
+        ════════════════════════════════════════════ */
+        .intro-layout {
             display: grid;
             gap: 40px;
+            align-items: center;
         }
 
-        .intro-image {
-            border-radius: 12px;
+        .intro-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 200px 140px;
+            gap: 10px;
+        }
+
+        .intro-img {
+            border-radius: var(--radius-sm);
             overflow: hidden;
             position: relative;
         }
 
-        .intro-image img {
+        .intro-img img {
             width: 100%;
-            height: 260px;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .intro-img:hover img { transform: scale(1.05); }
+
+        .intro-img.tall {
+            grid-row: 1 / 3;
+        }
+
+        .intro-badge {
+            position: absolute;
+            bottom: 12px; left: 12px;
+            background: var(--green-deep);
+            color: white;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            line-height: 1.3;
+        }
+
+        .intro-badge strong {
+            display: block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 0;
+            line-height: 1;
+        }
+
+        /* ════════════════════════════════════════════
+           PHOTO GALLERY — HORIZONTAL SCROLL
+        ════════════════════════════════════════════ */
+        .gallery-scroll-wrap {
+            padding: 0 20px 60px;
+        }
+
+        .gallery-header {
+            margin-bottom: 24px;
+        }
+
+        .gallery-scroll {
+            display: flex;
+            gap: 14px;
+            overflow-x: auto;
+            padding: 6px 4px 16px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--gold) var(--cream-mid);
+            scroll-snap-type: x mandatory;
+        }
+
+        .gallery-scroll::-webkit-scrollbar { height: 3px; }
+        .gallery-scroll::-webkit-scrollbar-track { background: var(--cream-mid); border-radius: 2px; }
+        .gallery-scroll::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+        .gallery-item {
+            flex-shrink: 0;
+            scroll-snap-align: start;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             display: block;
         }
 
-        .intro-image-badge {
-            position: absolute;
-            bottom: 16px;
-            left: 16px;
-            background: var(--green-deep);
-            color: white;
-            padding: 10px 16px;
-            border-radius: 8px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
+        .gallery-item.wide  { width: 280px; height: 200px; }
+        .gallery-item.tall  { width: 200px; height: 260px; }
+        .gallery-item.sq    { width: 220px; height: 220px; }
 
-        .intro-image-badge span {
-            display: block;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.6rem;
-            font-weight: 700;
-            letter-spacing: 0;
-            line-height: 1;
-            margin-bottom: 2px;
-        }
-
-        /* ══════════════════════════════════════
-           FEATURES CARDS
-        ══════════════════════════════════════ */
-        .cards-scroll {
+        /* ════════════════════════════════════════════
+           FEATURE CARDS (3-col scroll)
+        ════════════════════════════════════════════ */
+        .feature-scroll {
             display: flex;
             gap: 16px;
             overflow-x: auto;
-            padding: 10px 5px 20px;
+            padding: 8px 26px 24px;
             scrollbar-width: none;
-            -ms-overflow-style: none;
         }
-
-        .cards-scroll::-webkit-scrollbar { display: none; }
+        .feature-scroll::-webkit-scrollbar { display: none; }
 
         .feature-card {
-            min-width: 260px;
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.07);
             flex-shrink: 0;
-            transition: transform 0.3s, box-shadow 0.3s;
+            width: 270px;
+            background: white;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.35s, box-shadow 0.35s;
         }
 
         .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
         }
 
-        .card-img {
-            height: 180px;
-            background-size: cover;
-            background-position: center;
+        .feature-card-img {
+            height: 190px;
+            overflow: hidden;
             position: relative;
         }
 
-        .card-img-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(transparent 50%, rgba(0,0,0,0.5) 100%);
+        .feature-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
 
-        .card-body { padding: 20px; }
+        .feature-card:hover .feature-card-img img { transform: scale(1.07); }
 
-        .card-title {
+        .feature-card-img-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent 55%, rgba(0,0,0,0.45) 100%);
+        }
+
+        .feature-card-tag {
+            position: absolute;
+            top: 14px; left: 14px;
+            background: var(--gold);
+            color: white;
+            font-size: 0.58rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 5px 11px;
+            border-radius: 20px;
+        }
+
+        .feature-card-body { padding: 20px 20px 22px; }
+
+        .feature-card-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             font-weight: 700;
             color: var(--ink);
             margin-bottom: 8px;
         }
 
-        .card-text {
+        .feature-card-text {
             font-size: 0.82rem;
             color: #666;
-            line-height: 1.6;
+            line-height: 1.65;
         }
 
-        .card-tag {
-            display: inline-block;
-            background: var(--cream-dark);
-            color: var(--green-deep);
+        /* ════════════════════════════════════════════
+           EXPERIENCE GRID (dark green panel)
+        ════════════════════════════════════════════ */
+        .experience-panel {
+            margin: 0 20px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .experience-panel-bg {
+            position: absolute;
+            inset: 0;
+        }
+
+        .experience-panel-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .experience-panel-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(15, 38, 8, 0.88);
+        }
+
+        .experience-panel-content {
+            position: relative;
+            z-index: 2;
+            padding: 60px 28px;
+            color: white;
+            text-align: center;
+        }
+
+        .experience-panel-content .eyebrow { color: var(--gold-light); }
+        .experience-panel-content .section-heading { color: white; }
+        .experience-panel-content .section-heading em { color: var(--gold-light); }
+
+        .exp-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-top: 32px;
+        }
+
+        .exp-card {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: var(--radius-md);
+            padding: 24px 16px;
+            text-align: center;
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        .exp-card:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--gold);
+        }
+
+        .exp-card i {
+            font-size: 1.7rem;
+            color: var(--gold-light);
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .exp-card-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 7px;
+        }
+
+        .exp-card-desc {
+            font-size: 0.76rem;
+            opacity: 0.68;
+            line-height: 1.55;
+        }
+
+        /* ════════════════════════════════════════════
+           BAR SECTION (dark, dramatic)
+        ════════════════════════════════════════════ */
+        .bar-panel {
+            margin: 40px 20px 0;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bar-panel-bg {
+            position: absolute;
+            inset: 0;
+        }
+
+        .bar-panel-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bar-panel-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(10,10,6,0.92) 0%, rgba(10,10,6,0.70) 100%);
+        }
+
+        .bar-panel-content {
+            position: relative;
+            z-index: 2;
+            padding: 60px 28px;
+            color: white;
+            text-align: center;
+        }
+
+        .bar-icon-wrap {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: rgba(184,137,42,0.15);
+            border: 1.5px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .bar-icon-wrap i { font-size: 1.8rem; color: var(--gold); }
+
+        .bar-panel-content .section-heading { color: white; }
+        .bar-panel-content .section-heading em { color: var(--gold-light); }
+
+        .bar-features-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px 24px;
+            margin: 22px 0 30px;
+        }
+
+        .bar-feat-item {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+        }
+
+        .bar-feat-item::before {
+            content: '◆';
+            font-size: 0.45rem;
+            margin-right: 7px;
+            vertical-align: middle;
+        }
+
+        /* ════════════════════════════════════════════
+           ROOMS SECTION
+        ════════════════════════════════════════════ */
+        .rooms-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .room-card {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            position: relative;
+            height: 240px;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s;
+        }
+
+        .room-card:hover { transform: scale(1.02); }
+
+        .room-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .room-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent 35%, rgba(10,18,6,0.82) 100%);
+        }
+
+        .room-card-info {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 22px 20px;
+            color: white;
+        }
+
+        .room-card-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .room-card-detail {
+            font-size: 0.72rem;
+            opacity: 0.8;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .room-badge {
+            position: absolute;
+            top: 14px; right: 14px;
+            background: var(--gold);
+            color: white;
+            padding: 5px 13px;
+            border-radius: 20px;
             font-size: 0.6rem;
             font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
-            padding: 4px 10px;
-            border-radius: 20px;
-            margin-bottom: 10px;
         }
 
-        /* ══════════════════════════════════════
-           EXPERIENCE SECTION (dark)
-        ══════════════════════════════════════ */
-        .experience-section {
-            margin: 0 20px;
-            border-radius: 24px;
+        /* ════════════════════════════════════════════
+           NATURE / GROVE SECTION
+        ════════════════════════════════════════════ */
+        .nature-banner {
+            margin: 40px 20px;
+            border-radius: var(--radius-lg);
             overflow: hidden;
             position: relative;
-            background: var(--green-deep);
+            height: 300px;
         }
 
-        .experience-bg {
+        .nature-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .nature-banner-overlay {
             position: absolute;
             inset: 0;
-            background-image: url('https://images.unsplash.com/photo-1540553016722-983e48a2cd10?q=80&w=1200');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.2;
+            background: linear-gradient(to right, rgba(27,56,16,0.88) 0%, rgba(27,56,16,0.3) 70%);
+            display: flex;
+            align-items: center;
+            padding: 36px;
         }
 
-        .experience-content {
-            position: relative;
-            z-index: 2;
-            padding: 60px 30px;
-            text-align: center;
-            color: white;
-        }
+        .nature-text { max-width: 320px; color: white; }
 
-        .experience-content .section-tag { color: var(--gold-light); }
-        .experience-content .section-title { color: white; }
-        .experience-content .section-title em { color: var(--gold-light); }
+        .nature-text .eyebrow { color: var(--gold-light); }
 
-        .experience-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin: 30px 0;
-        }
-
-        .exp-item {
-            background: rgba(255,255,255,0.07);
-            border: 1px solid rgba(255,255,255,0.12);
-            border-radius: 12px;
-            padding: 20px 14px;
-            text-align: center;
-        }
-
-        .exp-item i {
-            font-size: 1.6rem;
-            color: var(--gold-light);
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .exp-title {
+        .nature-text h3 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 6px;
+            font-size: clamp(1.6rem, 5vw, 2.2rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 12px;
         }
 
-        .exp-desc {
-            font-size: 0.75rem;
-            opacity: 0.7;
+        .nature-text p {
+            font-size: 0.85rem;
+            line-height: 1.7;
+            opacity: 0.85;
+        }
+
+        /* ════════════════════════════════════════════
+           TESTIMONIAL
+        ════════════════════════════════════════════ */
+        .testimonial-wrap {
+            background: var(--cream-mid);
+            padding: 64px 28px;
+            text-align: center;
+        }
+
+        .testimonial-quote-mark {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5rem;
+            color: var(--gold);
+            line-height: 0.5;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        .testimonial-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.25rem, 4vw, 1.55rem);
+            font-style: italic;
+            line-height: 1.6;
+            color: var(--green-deep);
+            max-width: 520px;
+            margin: 0 auto 20px;
+        }
+
+        .testimonial-author {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        /* ════════════════════════════════════════════
+           LOCATION & CONTACT
+        ════════════════════════════════════════════ */
+        .contact-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 28px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 18px;
+        }
+
+        .contact-item:last-child { margin-bottom: 0; }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--cream-mid);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-icon i { color: var(--gold); font-size: 1rem; }
+
+        .contact-info { padding-top: 4px; }
+
+        .contact-label {
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 3px;
+        }
+
+        .contact-value {
+            font-size: 0.9rem;
+            color: var(--ink);
+            font-weight: 500;
             line-height: 1.5;
         }
 
-        /* ══════════════════════════════════════
-           BAR SECTION
-        ══════════════════════════════════════ */
-        .bar-section {
-            background: var(--ink);
-            margin: 40px 20px 0;
-            border-radius: 24px;
+        .contact-value a {
+            color: var(--ink);
+            transition: color 0.2s;
+        }
+
+        .contact-value a:hover { color: var(--gold); }
+
+        .map-embed {
+            border-radius: var(--radius-md);
             overflow: hidden;
-            position: relative;
+            height: 220px;
+            box-shadow: var(--shadow-sm);
         }
 
-        .bar-bg {
-            position: absolute;
-            inset: 0;
-            background-image: url('https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?q=80&w=1200');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.25;
+        .map-embed iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
-        .bar-content {
-            position: relative;
-            z-index: 2;
-            padding: 55px 30px;
-            text-align: center;
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background: var(--cream-mid);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .map-placeholder:hover { background: var(--cream-dark); }
+        .map-placeholder i { font-size: 2.5rem; color: var(--gold); }
+        .map-placeholder span { font-size: 0.8rem; font-weight: 600; color: var(--green-deep); letter-spacing: 1px; }
+
+        /* ════════════════════════════════════════════
+           CTA STRIP
+        ════════════════════════════════════════════ */
+        .cta-strip {
+            background: var(--gold);
+            padding: 28px 26px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .cta-strip-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
             color: white;
+            line-height: 1.2;
         }
 
-        .bar-icon {
-            font-size: 2.5rem;
+        .cta-strip-text small {
+            display: block;
+            font-family: 'Jost', sans-serif;
+            font-size: 0.73rem;
+            font-weight: 400;
+            opacity: 0.85;
+            margin-top: 3px;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-strip-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+        /* ════════════════════════════════════════════
+           FOOTER
+        ════════════════════════════════════════════ */
+        .footer {
+            background: var(--ink);
+            color: rgba(255,255,255,0.45);
+            padding: 36px 28px 120px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 1.5px solid var(--gold);
+            background: white;
+            overflow: hidden;
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-logo img { width: 100%; height: 100%; object-fit: contain; padding: 6px; }
+
+        .footer-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
             color: var(--gold);
-            margin-bottom: 16px;
+            margin-bottom: 4px;
         }
 
-        .bar-content .section-title { color: white; }
+        .footer-tagline {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 20px;
+        }
 
-        .bar-features {
+        .footer-divider {
+            width: 40px;
+            height: 1px;
+            background: var(--gold);
+            margin: 16px auto;
+            opacity: 0.4;
+        }
+
+        .footer-links {
             display: flex;
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
-            margin: 20px 0 28px;
-        }
-
-        .bar-feat {
-            font-size: 0.7rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--gold-light);
-            font-weight: 600;
-        }
-
-        .bar-feat::before {
-            content: '◆ ';
-            font-size: 0.5rem;
-        }
-
-        /* ══════════════════════════════════════
-           LOCATION
-        ══════════════════════════════════════ */
-        .location-card {
-            background: white;
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.07);
-        }
-
-        .location-card .section-title { font-size: 1.6rem; }
-
-        .location-detail {
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
             margin-bottom: 16px;
         }
 
-        .location-detail i {
-            color: var(--gold);
-            font-size: 1.1rem;
-            margin-top: 2px;
-            flex-shrink: 0;
+        .footer-links a {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.78rem;
+            transition: color 0.2s;
         }
 
-        .location-detail p {
-            font-size: 0.88rem;
-            line-height: 1.6;
-            color: #555;
-        }
+        .footer-links a:hover { color: var(--gold-light); }
 
-        .location-detail strong { color: var(--ink); }
+        .footer-copy { font-size: 0.7rem; opacity: 0.4; }
 
-        /* ══════════════════════════════════════
-           TESTIMONIAL
-        ══════════════════════════════════════ */
-        .testimonial-section {
-            background: var(--cream-dark);
-            padding: 60px 30px;
-            text-align: center;
-        }
-
-        .testimonial-quote {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
-            font-style: italic;
-            line-height: 1.6;
-            color: var(--green-deep);
-            max-width: 500px;
-            margin: 20px auto 20px;
-        }
-
-        .testimonial-author {
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--gold);
-        }
-
-        /* ══════════════════════════════════════
-           CTA STRIP
-        ══════════════════════════════════════ */
-        .cta-strip {
-            background: var(--gold);
-            padding: 24px 25px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .cta-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: white;
-        }
-
-        .cta-text small {
-            display: block;
-            font-family: 'Jost', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 400;
-            opacity: 0.85;
-            margin-top: 2px;
-        }
-
-        .cta-actions { display: flex; gap: 10px; flex-wrap: wrap; }
-
-        .btn {
-            padding: 12px 22px;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s;
-        }
-
-        .btn-white {
-            background: white;
-            color: var(--ink);
-        }
-
-        .btn-dark {
-            background: var(--ink);
-            color: white;
-        }
-
-        .btn:hover { opacity: 0.88; transform: translateY(-1px); }
-
-        /* ══════════════════════════════════════
+        /* ════════════════════════════════════════════
            BOTTOM NAV DOCK
-        ══════════════════════════════════════ */
+        ════════════════════════════════════════════ */
         .nav-dock {
             position: fixed;
             bottom: 16px;
             left: 50%;
             transform: translateX(-50%);
-            width: calc(100% - 40px);
-            max-width: 420px;
-            background: rgba(15, 20, 10, 0.97);
-            backdrop-filter: blur(20px);
+            width: calc(100% - 32px);
+            max-width: 380px;
+            background: rgba(14, 20, 10, 0.97);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
             display: flex;
             justify-content: space-around;
-            padding: 14px 10px;
+            align-items: center;
+            padding: 13px 10px;
             border-radius: 60px;
             z-index: 1000;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 12px 48px rgba(0,0,0,0.55);
+            border: 1px solid rgba(255,255,255,0.07);
         }
 
-        .dock-link {
-            text-decoration: none;
-            color: rgba(255,255,255,0.7);
-            font-size: 0.6rem;
-            text-align: center;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: color 0.3s;
+        .dock-item {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 4px;
+            text-decoration: none;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.58rem;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            transition: color 0.28s;
+            padding: 2px 10px;
         }
 
-        .dock-link:hover { color: var(--gold-light); }
+        .dock-item i { font-size: 1.25rem; color: var(--gold); display: block; }
+        .dock-item.whatsapp i { color: #25D366; }
+        .dock-item:hover { color: var(--gold-light); }
 
-        .dock-link i {
-            font-size: 1.25rem;
-            display: block;
-            color: var(--gold);
+        /* ════════════════════════════════════════════
+           LIGHTBOX
+        ════════════════════════════════════════════ */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 5000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
         }
 
-        .dock-link.whatsapp i { color: #25D366; }
+        .lightbox.open { opacity: 1; pointer-events: all; }
 
-        .spacer-dock { height: 100px; }
-
-        /* ══════════════════════════════════════
-           FOOTER
-        ══════════════════════════════════════ */
-        .footer {
-            background: var(--ink);
-            color: rgba(255,255,255,0.5);
-            text-align: center;
-            padding: 28px 25px 120px;
-            font-size: 0.75rem;
+        .lightbox img {
+            max-width: 92vw;
+            max-height: 88vh;
+            border-radius: 10px;
+            object-fit: contain;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.7);
         }
 
-        .footer strong { color: var(--gold); }
-        .footer a { color: var(--gold-light); text-decoration: none; }
-
-        /* ══════════════════════════════════════
-           RESPONSIVE — tablet/desktop
-        ══════════════════════════════════════ */
-        @media (min-width: 768px) {
-            .usp-bar { margin: -40px 40px 0; }
-            .intro-grid { grid-template-columns: 1fr 1fr; align-items: center; }
-            .intro-image img { height: 340px; }
-            .experience-grid { grid-template-columns: repeat(4, 1fr); }
-            .section { padding: 100px 40px; }
-            .experience-section { margin: 0 40px; }
-            .bar-section { margin: 50px 40px 0; }
+        .lightbox-close {
+            position: absolute;
+            top: 20px; right: 24px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+            background: none; border: none;
+            line-height: 1;
         }
 
-        @media (min-width: 1024px) {
-            .usp-bar { margin: -50px 60px 0; max-width: 900px; margin-left: auto; margin-right: auto; }
-            .cards-scroll { justify-content: center; }
+        .lightbox-close:hover { opacity: 1; }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 1.6rem;
+            cursor: pointer;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
         }
 
-        /* Fade in animations */
+        .lightbox-nav:hover { background: rgba(255,255,255,0.2); }
+        .lightbox-prev { left: 16px; }
+        .lightbox-next { right: 16px; }
+
+        /* ════════════════════════════════════════════
+           SCROLL ANIMATIONS
+        ════════════════════════════════════════════ */
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(28px); }
             to   { opacity: 1; transform: translateY(0); }
         }
 
-        .fade-up {
-            animation: fadeUp 0.8s ease both;
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
         }
 
-        .delay-1 { animation-delay: 0.15s; }
-        .delay-2 { animation-delay: 0.3s; }
-        .delay-3 { animation-delay: 0.45s; }
-        .delay-4 { animation-delay: 0.6s; }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ════════════════════════════════════════════
+           RESPONSIVE — TABLET & DESKTOP
+        ════════════════════════════════════════════ */
+        @media (min-width: 640px) {
+            .usp-bar { margin: -42px 30px 0; }
+            .intro-images { grid-template-rows: 240px 160px; }
+            .rooms-grid { grid-template-columns: 1fr 1fr; }
+            .contact-grid { grid-template-columns: 1fr 1fr; }
+            .exp-grid { grid-template-columns: repeat(4, 1fr); }
+            .board-banner { height: 260px; }
+        }
+
+        @media (min-width: 900px) {
+            .usp-bar { max-width: 860px; margin-left: auto; margin-right: auto; }
+            .intro-layout { grid-template-columns: 1fr 1fr; gap: 50px; }
+            .intro-images { grid-template-rows: 260px 180px; }
+            .section { padding: 90px 40px; }
+            .experience-panel { margin: 0 40px; }
+            .bar-panel { margin: 50px 40px 0; }
+            .nature-banner { margin: 50px 40px; height: 340px; }
+            .gallery-scroll-wrap { padding: 0 40px 60px; }
+            .feature-scroll { padding: 8px 40px 24px; }
+        }
     </style>
 </head>
 <body>
 
-    <!-- ══ TOP NAV ══ -->
-    <nav class="top-nav">
+    <!-- ══════════════════════════════════════
+         LIGHTBOX
+    ══════════════════════════════════════ -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lbClose">✕</button>
+        <button class="lightbox-nav lightbox-prev" id="lbPrev"><i class="fa-solid fa-chevron-left"></i></button>
+        <img id="lbImg" src="" alt="">
+        <button class="lightbox-nav lightbox-next" id="lbNext"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         TOP NAV
+    ══════════════════════════════════════ -->
+    <nav class="top-nav" id="topNav">
         <div class="logo-wrap">
-            <img src="parth logo.jpg" alt="Parth RBR Logo">
+            <img src="parth logo.jpg" alt="Parth RBR">
         </div>
-        <div class="nav-contact">
-            <a href="tel:+919987456703" class="nav-btn"><i class="fa-solid fa-phone"></i> Call</a>
-            <a href="https://wa.me/919987456703" class="nav-btn gold"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        <div class="nav-right">
+            <a href="tel:+919987456703" class="nav-pill">
+                <i class="fa-solid fa-phone"></i> Call
+            </a>
+            <a href="https://wa.me/919987456703" class="nav-pill green">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+            </a>
         </div>
     </nav>
 
-    <!-- ══ HERO ══ -->
+    <!-- ══════════════════════════════════════
+         HERO SLIDER
+    ══════════════════════════════════════ -->
     <header class="hero">
+        <div class="slide-progress"><div class="slide-progress-bar" id="progressBar"></div></div>
+
         <div class="slide slide-1 active"></div>
         <div class="slide slide-2"></div>
         <div class="slide slide-3"></div>
         <div class="slide slide-4"></div>
+        <div class="slide slide-5"></div>
 
         <div class="hero-overlay"></div>
 
-        <div class="slide-dots" id="dots">
-            <div class="dot active" onclick="goSlide(0)"></div>
-            <div class="dot" onclick="goSlide(1)"></div>
-            <div class="dot" onclick="goSlide(2)"></div>
-            <div class="dot" onclick="goSlide(3)"></div>
+        <div class="slide-dots" id="slideDots">
+            <div class="dot active" data-slide="0"></div>
+            <div class="dot" data-slide="1"></div>
+            <div class="dot" data-slide="2"></div>
+            <div class="dot" data-slide="3"></div>
+            <div class="dot" data-slide="4"></div>
         </div>
 
-        <div class="hero-content fade-up">
-            <span class="hero-eyebrow">Titha Flyover Junction · Konkan</span>
+        <div class="hero-content">
+            <span class="hero-eyebrow">Titha Flyover Junction · Konkan, Maharashtra</span>
             <h1 class="hero-title">
                 Parth RBR
-                <span>Restaurant · Bar · Rooms</span>
+                <span class="hero-subtitle">Restaurant · Bar · Rooms</span>
             </h1>
-            <div class="ornament">
+            <div class="hero-ornament">
                 <div class="ornament-line"></div>
                 <div class="ornament-diamond"></div>
                 <div class="ornament-line"></div>
             </div>
-            <p class="hero-sub">Homely Satisfaction · Managed by Women · 2 Acres of Nature</p>
+            <p class="hero-tagline">Homely Satisfaction &nbsp;·&nbsp; Women Managed &nbsp;·&nbsp; 2 Acres of Nature</p>
+            <div class="hero-cta">
+                <a href="tel:+919987456703" class="btn btn-gold">
+                    <i class="fa-solid fa-phone"></i> Call Now
+                </a>
+                <a href="https://wa.me/919987456703" class="btn btn-outline">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- ══ USP BAR ══ -->
-    <div class="usp-bar fade-up delay-2">
+    <!-- ══════════════════════════════════════
+         FLOATING USP BAR
+    ══════════════════════════════════════ -->
+    <div class="usp-bar reveal">
         <div class="usp-item">
             <i class="fa-solid fa-person-dress"></i>
             <div class="usp-label">Women<br>Managed</div>
@@ -821,269 +1391,529 @@
         </div>
         <div class="usp-item">
             <i class="fa-solid fa-tree"></i>
-            <div class="usp-label">2 Acres<br>Mango Grove</div>
+            <div class="usp-label">2 Acres<br>Mango & Kaju</div>
         </div>
         <div class="usp-item">
             <i class="fa-solid fa-shield-heart"></i>
-            <div class="usp-label">Family<br>Safe</div>
+            <div class="usp-label">Family<br>Friendly</div>
         </div>
     </div>
 
-    <!-- ══ INTRO ══ -->
+    <!-- ══════════════════════════════════════
+         SIGNBOARD BANNER
+    ══════════════════════════════════════ -->
+    <div class="board-banner reveal">
+        <img src="parth board.jpg" alt="Parth RBR Signboard">
+        <div class="board-banner-overlay">
+            <div class="board-text">
+                <h2>Welcome to<br>Parth RBR</h2>
+                <p>Your Konkani Home Away From Home</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         ABOUT / INTRO
+    ══════════════════════════════════════ -->
     <section class="section">
-        <div class="intro-grid">
-            <div>
-                <span class="section-tag">Our Story</span>
-                <h2 class="section-title">The <em>Spirit of Konkan</em><br>Lives Here</h2>
-                <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div></div>
-                <p class="body-text">
-                    Nestled at the Titha Flyover junction, Parth RBR sits on 2 lush acres of Mango and Kaju groves — a true Konkani sanctuary. Proudly managed by women, we believe great hospitality begins at home: in the warmth of a meal cooked without shortcuts, and a room prepared with care.
+        <div class="intro-layout container">
+            <div class="reveal">
+                <span class="eyebrow">Our Story</span>
+                <h2 class="section-heading">The <em>Spirit of Konkan</em><br>Lives Here</h2>
+                <div class="ornament">
+                    <div class="ornament-line"></div>
+                    <div class="ornament-diamond"></div>
+                </div>
+                <p class="body-copy">
+                    Nestled at the Titha Flyover junction, Parth RBR sits on 2 lush acres of Mango and Kaju groves — a true Konkani sanctuary. Proudly managed by women, we believe great hospitality begins at home: in the warmth of a meal cooked without shortcuts, and a room prepared with genuine care.
                 </p>
                 <br>
-                <p class="body-text">
-                    Whether you're a traveler seeking a rest stop on the highway, or a local looking for authentic Konkani flavors and the finest selection of beverages, Parth RBR is your destination.
+                <p class="body-copy">
+                    Whether you're a traveler seeking a restful stop on the highway, or a local looking for authentic Konkani flavors and the finest selection of beverages, Parth RBR is your destination. Zero artificial colors. Zero compromises.
                 </p>
+                <br>
+                <a href="tel:+919987456703" class="btn btn-gold" style="margin-top: 8px;">
+                    <i class="fa-solid fa-phone"></i> Make a Reservation
+                </a>
             </div>
-            <div class="intro-image">
-                <img src="https://images.unsplash.com/photo-1598511796432-32e98afc5fd8?q=80&w=900" alt="Konkan landscape">
-                <div class="intro-image-badge">
-                    <span>2 Acres</span>
-                    Mango & Kaju Grove
+            <div class="intro-images reveal reveal-delay-2">
+                <div class="intro-img tall">
+                    <img src="parth 6.webp" alt="Parth RBR">
+                    <div class="intro-badge"><strong>2</strong>Acres of<br>Nature</div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══ FEATURES ══ -->
-    <section style="padding: 0 15px 70px;">
-        <div style="padding: 0 10px 20px;">
-            <span class="section-tag">What We Offer</span>
-            <h2 class="section-title">The <em>Parth Experience</em></h2>
-        </div>
-
-        <div class="cards-scroll">
-            <div class="feature-card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?q=80&w=800')">
-                    <div class="card-img-overlay"></div>
+                <div class="intro-img">
+                    <img src="parth 7.webp" alt="Parth RBR">
                 </div>
-                <div class="card-body">
-                    <span class="card-tag">Dining</span>
-                    <h3 class="card-title">Authentic Konkani Cuisine</h3>
-                    <p class="card-text">Traditional recipes by specialized chefs — zero artificial colors, all natural ingredients, full Konkani heart.</p>
-                </div>
-            </div>
-
-            <div class="feature-card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=800')">
-                    <div class="card-img-overlay"></div>
-                </div>
-                <div class="card-body">
-                    <span class="card-tag">Stay</span>
-                    <h3 class="card-title">Premium Rooms</h3>
-                    <p class="card-text">AC and Non-AC options designed for travelers craving silence, cleanliness, and a true home-away-from-home.</p>
-                </div>
-            </div>
-
-            <div class="feature-card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=800')">
-                    <div class="card-img-overlay"></div>
-                </div>
-                <div class="card-body">
-                    <span class="card-tag">Bar</span>
-                    <h3 class="card-title">Premium Bar</h3>
-                    <p class="card-text">The widest range of liquors in the region, served in a comfortable, family-welcoming environment.</p>
-                </div>
-            </div>
-
-            <div class="feature-card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1474031317822-f51f48735ddd?q=80&w=800')">
-                    <div class="card-img-overlay"></div>
-                </div>
-                <div class="card-body">
-                    <span class="card-tag">Nature</span>
-                    <h3 class="card-title">Mango & Kaju Grove</h3>
-                    <p class="card-text">Walk through 2 acres of silent, fragrant mango and cashew groves — the essence of Konkan countryside.</p>
+                <div class="intro-img">
+                    <img src="parth 8.webp" alt="Parth RBR">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ══ EXPERIENCE ══ -->
-    <div class="experience-section">
-        <div class="experience-bg"></div>
-        <div class="experience-content">
-            <span class="section-tag">Why Choose Us</span>
-            <h2 class="section-title">A Place Where <em>Every Detail</em> Matters</h2>
-            <div class="experience-grid">
-                <div class="exp-item">
+    <!-- ══════════════════════════════════════
+         PHOTO GALLERY — ALL 13 IMAGES
+    ══════════════════════════════════════ -->
+    <section class="section-cream section-tight">
+        <div class="gallery-scroll-wrap">
+            <div class="gallery-header reveal">
+                <span class="eyebrow">Photo Gallery</span>
+                <h2 class="section-heading">A Glimpse of <em>Parth RBR</em></h2>
+            </div>
+            <div class="gallery-scroll" id="galleryScroll">
+                <div class="gallery-item wide" data-index="0">
+                    <img src="parth 1.webp" alt="Parth RBR">
+                </div>
+                <div class="gallery-item tall" data-index="1">
+                    <img src="parth 2.webp" alt="Parth RBR">
+                </div>
+                <div class="gallery-item sq" data-index="2">
+                    <img src="parth 3.webp" alt="Parth RBR">
+                </div>
+                <div class="gallery-item wide" data-index="3">
+                    <img src="parth 4.webp" alt="Parth RBR">
+                </div>
+                <div class="gallery-item tall" data-index="4">
+                    <img src="parth 5.webp" alt="Parth RBR">
+                </div>
+                <div class="gallery-item sq" data-index="5">
+                    <img src="parth 6.webp" alt="Parth RBR">
+                </div>
+                <div class="gallery-item wide" data-index="6">
+                    <img src="parth 7.webp" alt="Parth RBR">
+                </div>
+                <div class="gallery-item tall" data-index="7">
+                    <img src="parth 8.webp" alt="Parth RBR">
+                </div>
+                <div class="gallery-item sq" data-index="8">
+                    <img src="parth 9.webp" alt="Parth RBR">
+                </div>
+                <div class="gallery-item wide" data-index="9">
+                    <img src="parth 10.webp" alt="Parth RBR">
+                </div>
+                <div class="gallery-item sq" data-index="10">
+                    <img src="parth 11.webp" alt="Parth RBR">
+                </div>
+                <div class="gallery-item tall" data-index="11">
+                    <img src="parth 12.webp" alt="Parth RBR">
+                </div>
+                <div class="gallery-item wide" data-index="12">
+                    <img src="parth 13.webp" alt="Parth RBR">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         FEATURE CARDS — DINING, ROOMS, BAR, NATURE
+    ══════════════════════════════════════ -->
+    <section class="section" style="padding-bottom: 20px;">
+        <div style="padding: 0 26px 20px;" class="reveal">
+            <span class="eyebrow">What We Offer</span>
+            <h2 class="section-heading">The Complete <em>Parth Experience</em></h2>
+        </div>
+    </section>
+
+    <div class="feature-scroll">
+        <div class="feature-card reveal">
+            <div class="feature-card-img">
+                <img src="parth 1.webp" alt="Authentic Konkani Dining">
+                <div class="feature-card-img-overlay"></div>
+                <span class="feature-card-tag">Dining</span>
+            </div>
+            <div class="feature-card-body">
+                <h3 class="feature-card-title">Authentic Konkani Cuisine</h3>
+                <p class="feature-card-text">Traditional recipes crafted by specialized chefs using zero artificial colors or flavors. Pure Konkani taste, every single time.</p>
+            </div>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-1">
+            <div class="feature-card-img">
+                <img src="parth 9.webp" alt="Premium Rooms">
+                <div class="feature-card-img-overlay"></div>
+                <span class="feature-card-tag">Stay</span>
+            </div>
+            <div class="feature-card-body">
+                <h3 class="feature-card-title">Comfortable Rooms</h3>
+                <p class="feature-card-text">AC and Non-AC rooms designed for true peace of mind. Clean, well-maintained, and set in a quiet natural environment.</p>
+            </div>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-2">
+            <div class="feature-card-img">
+                <img src="parth 11.webp" alt="Premium Bar">
+                <div class="feature-card-img-overlay"></div>
+                <span class="feature-card-tag">Bar</span>
+            </div>
+            <div class="feature-card-body">
+                <h3 class="feature-card-title">Premium Bar</h3>
+                <p class="feature-card-text">The widest range of liquors in the region — served responsibly in a family-welcoming, comfortable setting.</p>
+            </div>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-3">
+            <div class="feature-card-img">
+                <img src="parth 13.webp" alt="Nature Grove">
+                <div class="feature-card-img-overlay"></div>
+                <span class="feature-card-tag">Nature</span>
+            </div>
+            <div class="feature-card-body">
+                <h3 class="feature-card-title">Mango & Kaju Grove</h3>
+                <p class="feature-card-text">2 acres of lush, fragrant mango and cashew orchards — a rare and serene slice of authentic Konkan countryside.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         NATURE BANNER
+    ══════════════════════════════════════ -->
+    <div class="nature-banner reveal">
+        <img src="parth 5.webp" alt="Parth RBR Nature">
+        <div class="nature-banner-overlay">
+            <div class="nature-text">
+                <span class="eyebrow">2 Acres of Serenity</span>
+                <h3>Surrounded<br>by Mango &<br>Kaju Groves</h3>
+                <p>Experience the calm of Konkan's green heartland right at your doorstep.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         WHY CHOOSE US
+    ══════════════════════════════════════ -->
+    <div class="experience-panel" style="margin-top: 40px;">
+        <div class="experience-panel-bg">
+            <img src="parth 3.webp" alt="Parth RBR">
+        </div>
+        <div class="experience-panel-overlay"></div>
+        <div class="experience-panel-content">
+            <span class="eyebrow">Why Choose Us</span>
+            <h2 class="section-heading">A Place Where <em>Every Detail</em> Matters</h2>
+
+            <div class="exp-grid">
+                <div class="exp-card reveal">
                     <i class="fa-solid fa-utensils"></i>
-                    <div class="exp-title">Home-Style Cooking</div>
-                    <div class="exp-desc">Recipes passed down through generations, made fresh daily</div>
+                    <div class="exp-card-title">Home-Style Cooking</div>
+                    <div class="exp-card-desc">Recipes passed down through generations, prepared fresh daily with love</div>
                 </div>
-                <div class="exp-item">
-                    <i class="fa-solid fa-bottle-water"></i>
-                    <div class="exp-title">Chemical Free</div>
-                    <div class="exp-desc">No artificial flavors or colors in any of our food</div>
+                <div class="exp-card reveal reveal-delay-1">
+                    <i class="fa-solid fa-leaf"></i>
+                    <div class="exp-card-title">100% Chemical Free</div>
+                    <div class="exp-card-desc">No artificial colors or flavors — ever. Pure and natural Konkani food</div>
                 </div>
-                <div class="exp-item">
+                <div class="exp-card reveal reveal-delay-2">
                     <i class="fa-solid fa-road"></i>
-                    <div class="exp-title">Highway Location</div>
-                    <div class="exp-desc">Prime spot at Titha Flyover junction — easy access</div>
+                    <div class="exp-card-title">Highway Location</div>
+                    <div class="exp-card-desc">Prime spot at Titha Flyover junction — perfectly placed for travelers</div>
                 </div>
-                <div class="exp-item">
-                    <i class="fa-solid fa-moon"></i>
-                    <div class="exp-title">Peaceful Retreat</div>
-                    <div class="exp-desc">Silent, nature-surrounded setting for complete relaxation</div>
+                <div class="exp-card reveal reveal-delay-3">
+                    <i class="fa-solid fa-person-dress"></i>
+                    <div class="exp-card-title">Women Managed</div>
+                    <div class="exp-card-desc">Proudly run by women — bringing extra care, warmth and attention</div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- ══ BAR ══ -->
-    <div class="bar-section">
-        <div class="bar-bg"></div>
-        <div class="bar-content">
-            <div class="bar-icon"><i class="fa-solid fa-whiskey-glass"></i></div>
-            <h2 class="section-title">Premium Bar</h2>
-            <p style="opacity:0.75; font-size: 0.9rem; margin-top: 8px;">The widest selection in the region — served right</p>
-            <div class="bar-features">
-                <span class="bar-feat">Widest Range of Liquors</span>
-                <span class="bar-feat">Family-Friendly Setup</span>
-                <span class="bar-feat">Chilled Beers</span>
-                <span class="bar-feat">Spirits & More</span>
-            </div>
-            <a href="tel:+919987456703" class="btn btn-white">
-                <i class="fa-solid fa-phone"></i> Reserve a Table
-            </a>
+    <!-- ══════════════════════════════════════
+         ROOMS SECTION
+    ══════════════════════════════════════ -->
+    <section class="section">
+        <div class="reveal" style="margin-bottom: 28px;">
+            <span class="eyebrow">Accommodation</span>
+            <h2 class="section-heading">Rest Well at <em>Parth RBR</em></h2>
         </div>
-    </div>
-
-    <!-- ══ TESTIMONIAL ══ -->
-    <div class="testimonial-section">
-        <span class="section-tag">Guest Love</span>
-        <p class="testimonial-quote">
-            "The kind of place that makes you feel like you never left home — real food, real warmth, and a setting that only Konkan can offer."
-        </p>
-        <div class="ornament" style="justify-content:center; margin: 10px 0;">
-            <div class="ornament-line" style="background:#b8892a;"></div>
-            <div class="ornament-diamond" style="background:#b8892a;"></div>
-            <div class="ornament-line" style="background:#b8892a;"></div>
+        <div class="rooms-grid">
+            <div class="room-card reveal">
+                <img src="parth 10.webp" alt="AC Room">
+                <div class="room-card-overlay"></div>
+                <span class="room-badge">AC</span>
+                <div class="room-card-info">
+                    <div class="room-card-title">AC Rooms</div>
+                    <div class="room-card-detail">Cool Comfort · Full Amenities</div>
+                </div>
+            </div>
+            <div class="room-card reveal reveal-delay-1">
+                <img src="parth 12.webp" alt="Non-AC Room">
+                <div class="room-card-overlay"></div>
+                <span class="room-badge" style="background: var(--green-mid);">Non-AC</span>
+                <div class="room-card-info">
+                    <div class="room-card-title">Non-AC Rooms</div>
+                    <div class="room-card-detail">Natural Breeze · Budget Friendly</div>
+                </div>
+            </div>
         </div>
-        <p class="testimonial-author">Satisfied Guest · Parth RBR</p>
-    </div>
-
-    <!-- ══ LOCATION ══ -->
-    <section class="section-sm" style="padding: 50px 25px;">
-        <span class="section-tag">Find Us</span>
-        <h2 class="section-title" style="margin-bottom: 24px;">Visit <em>Parth RBR</em></h2>
-
-        <div class="location-card">
-            <div class="location-detail">
-                <i class="fa-solid fa-map-pin"></i>
-                <p><strong>Titha Flyover Junction</strong><br>Konkan, Maharashtra, India</p>
-            </div>
-            <div class="location-detail">
-                <i class="fa-solid fa-phone"></i>
-                <p><a href="tel:+919987456703" style="color: var(--gold); font-weight:600;">+91 99874 56703</a></p>
-            </div>
-            <div class="location-detail">
-                <i class="fa-brands fa-whatsapp"></i>
-                <p><a href="https://wa.me/919987456703" style="color: #25D366; font-weight:600;">Chat on WhatsApp</a></p>
-            </div>
-            <div class="location-detail">
-                <i class="fa-solid fa-map-location-dot"></i>
-                <p><a href="https://share.google/A8innDKwD6UXdOhOD" target="_blank" style="color: var(--gold); font-weight:600;">Open in Google Maps →</a></p>
-            </div>
-
-            <a href="https://share.google/A8innDKwD6UXdOhOD" target="_blank" class="btn btn-dark" style="margin-top: 10px; display: inline-flex;">
-                <i class="fa-solid fa-location-dot"></i> Get Directions
+        <div style="margin-top: 20px; text-align: center;">
+            <a href="tel:+919987456703" class="btn btn-gold">
+                <i class="fa-solid fa-bed"></i> Book a Room
             </a>
         </div>
     </section>
 
-    <!-- ══ CTA STRIP ══ -->
-    <div class="cta-strip">
-        <div class="cta-text">
-            Ready to Visit?
-            <small>Call or WhatsApp us — we're always ready to welcome you.</small>
+    <!-- ══════════════════════════════════════
+         BAR SECTION
+    ══════════════════════════════════════ -->
+    <div class="bar-panel">
+        <div class="bar-panel-bg">
+            <img src="parth 2.webp" alt="Parth RBR Bar">
         </div>
-        <div class="cta-actions">
-            <a href="tel:+919987456703" class="btn btn-white"><i class="fa-solid fa-phone"></i> Call Now</a>
-            <a href="https://wa.me/919987456703" class="btn btn-dark"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        <div class="bar-panel-overlay"></div>
+        <div class="bar-panel-content">
+            <div class="bar-icon-wrap">
+                <i class="fa-solid fa-whiskey-glass"></i>
+            </div>
+            <span class="eyebrow" style="color: var(--gold-light);">Premium Bar</span>
+            <h2 class="section-heading" style="color: white;">The Finest <em style="color:var(--gold-light)">Selection</em><br>in the Region</h2>
+            <div class="bar-features-list">
+                <span class="bar-feat-item">Widest Liquor Range</span>
+                <span class="bar-feat-item">Family Friendly</span>
+                <span class="bar-feat-item">Chilled Beers</span>
+                <span class="bar-feat-item">Fine Spirits</span>
+                <span class="bar-feat-item">Soft Drinks</span>
+            </div>
+            <a href="tel:+919987456703" class="btn btn-gold">
+                <i class="fa-solid fa-phone"></i> Call for Reservations
+            </a>
         </div>
     </div>
 
-    <!-- ══ FOOTER ══ -->
+    <!-- ══════════════════════════════════════
+         TESTIMONIAL
+    ══════════════════════════════════════ -->
+    <div class="testimonial-wrap">
+        <div class="testimonial-quote-mark">"</div>
+        <p class="testimonial-text reveal">
+            The kind of place that makes you feel like you never left home — real food, real warmth, and a setting that only Konkan can offer. Parth RBR is truly special.
+        </p>
+        <div class="ornament ornament-center reveal">
+            <div class="ornament-line"></div>
+            <div class="ornament-diamond"></div>
+            <div class="ornament-line"></div>
+        </div>
+        <p class="testimonial-author reveal">A Valued Guest · Parth RBR</p>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         CONTACT & LOCATION
+    ══════════════════════════════════════ -->
+    <section class="section">
+        <div class="reveal" style="margin-bottom: 28px;">
+            <span class="eyebrow">Find Us</span>
+            <h2 class="section-heading">Visit <em>Parth RBR</em></h2>
+        </div>
+
+        <div class="contact-grid container">
+            <div class="contact-card reveal">
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fa-solid fa-map-pin"></i></div>
+                    <div class="contact-info">
+                        <div class="contact-label">Location</div>
+                        <div class="contact-value">Titha Flyover Junction<br>Konkan, Maharashtra, India</div>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                    <div class="contact-info">
+                        <div class="contact-label">Phone</div>
+                        <div class="contact-value">
+                            <a href="tel:+919987456703">+91 99874 56703</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                    <div class="contact-info">
+                        <div class="contact-label">WhatsApp</div>
+                        <div class="contact-value">
+                            <a href="https://wa.me/919987456703">Chat With Us</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fa-solid fa-clock"></i></div>
+                    <div class="contact-info">
+                        <div class="contact-label">Open</div>
+                        <div class="contact-value">All Days · 7:00 AM – 11:00 PM</div>
+                    </div>
+                </div>
+                <a href="https://share.google/A8innDKwD6UXdOhOD" target="_blank" class="btn btn-gold" style="width: 100%; justify-content: center; margin-top: 6px;">
+                    <i class="fa-solid fa-map-location-dot"></i> Get Directions on Google Maps
+                </a>
+            </div>
+
+            <div class="map-embed reveal reveal-delay-1">
+                <a href="https://share.google/A8innDKwD6UXdOhOD" target="_blank" class="map-placeholder">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    <span>Tap to Open in Google Maps</span>
+                    <small style="font-size:0.72rem; color:#888; text-align:center;">Titha Flyover Junction, Konkan</small>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         CTA STRIP
+    ══════════════════════════════════════ -->
+    <div class="cta-strip">
+        <div class="cta-strip-text">
+            Ready to Experience Parth RBR?
+            <small>Call or WhatsApp — we're always ready to welcome you.</small>
+        </div>
+        <div class="cta-strip-actions">
+            <a href="tel:+919987456703" class="btn btn-white">
+                <i class="fa-solid fa-phone"></i> Call Now
+            </a>
+            <a href="https://wa.me/919987456703" class="btn btn-dark">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         FOOTER
+    ══════════════════════════════════════ -->
     <footer class="footer">
-        <strong>Parth RBR</strong> &nbsp;·&nbsp; Restaurant · Bar · Rooms<br>
-        Titha Flyover Junction, Konkan &nbsp;·&nbsp;
-        <a href="tel:+919987456703">+91 99874 56703</a><br><br>
-        © 2025 Parth RBR. Proudly managed by women. All rights reserved.
+        <div class="footer-logo">
+            <img src="parth logo.jpg" alt="Parth RBR Logo">
+        </div>
+        <div class="footer-name">Parth RBR</div>
+        <div class="footer-tagline">Restaurant · Bar · Rooms</div>
+        <div class="footer-divider"></div>
+        <div class="footer-links">
+            <a href="tel:+919987456703"><i class="fa-solid fa-phone"></i> +91 99874 56703</a>
+            <a href="https://wa.me/919987456703"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://share.google/A8innDKwD6UXdOhOD" target="_blank"><i class="fa-solid fa-map-pin"></i> Directions</a>
+        </div>
+        <p class="footer-copy">© 2025 Parth RBR · Titha Flyover Junction, Konkan · Proudly managed by women</p>
     </footer>
 
-    <!-- ══ BOTTOM NAV DOCK ══ -->
+    <!-- ══════════════════════════════════════
+         BOTTOM NAV DOCK
+    ══════════════════════════════════════ -->
     <nav class="nav-dock">
-        <a href="tel:+919987456703" class="dock-link">
-            <i class="fa-solid fa-phone"></i> Call
+        <a href="tel:+919987456703" class="dock-item">
+            <i class="fa-solid fa-phone"></i>
+            Call
         </a>
-        <a href="https://wa.me/919987456703" class="dock-link whatsapp">
-            <i class="fa-brands fa-whatsapp"></i> Chat
+        <a href="https://wa.me/919987456703" class="dock-item whatsapp">
+            <i class="fa-brands fa-whatsapp"></i>
+            Chat
         </a>
-        <a href="https://share.google/A8innDKwD6UXdOhOD" target="_blank" class="dock-link">
-            <i class="fa-solid fa-map-location-dot"></i> Locate
+        <a href="https://share.google/A8innDKwD6UXdOhOD" target="_blank" class="dock-item">
+            <i class="fa-solid fa-map-location-dot"></i>
+            Locate
         </a>
     </nav>
 
+    <!-- ══════════════════════════════════════
+         JAVASCRIPT
+    ══════════════════════════════════════ -->
     <script>
-        // ── Slider ──
-        let current = 0;
-        const slides = document.querySelectorAll('.slide');
-        const dots   = document.querySelectorAll('.dot');
-        let timer;
+        // ── SLIDER ──────────────────────────────
+        const slides     = document.querySelectorAll('.slide');
+        const dots       = document.querySelectorAll('.dot');
+        const progressBar = document.getElementById('progressBar');
+        let current      = 0;
+        let autoTimer, progressTimer;
+        const INTERVAL   = 5000;
 
-        function goSlide(n) {
+        function animateProgress() {
+            progressBar.style.transition = 'none';
+            progressBar.style.width = '0%';
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    progressBar.style.transition = `width ${INTERVAL}ms linear`;
+                    progressBar.style.width = '100%';
+                });
+            });
+        }
+
+        function goToSlide(n) {
             slides[current].classList.remove('active');
             dots[current].classList.remove('active');
-            current = n;
+            current = (n + slides.length) % slides.length;
             slides[current].classList.add('active');
             dots[current].classList.add('active');
+            animateProgress();
         }
 
-        function nextSlide() {
-            goSlide((current + 1) % slides.length);
+        function startAuto() {
+            clearInterval(autoTimer);
+            autoTimer = setInterval(() => goToSlide(current + 1), INTERVAL);
         }
 
-        function startTimer() {
-            timer = setInterval(nextSlide, 5000);
-        }
-
-        startTimer();
-
-        // Pause on dot click
-        document.querySelectorAll('.dot').forEach((dot, i) => {
+        dots.forEach(dot => {
             dot.addEventListener('click', () => {
-                clearInterval(timer);
-                goSlide(i);
-                startTimer();
+                goToSlide(parseInt(dot.dataset.slide));
+                startAuto();
             });
         });
 
-        // ── Scroll fade-up for sections ──
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
-                if (e.isIntersecting) {
-                    e.target.style.opacity = '1';
-                    e.target.style.transform = 'translateY(0)';
+        animateProgress();
+        startAuto();
+
+        // ── NAV SCROLL ──────────────────────────
+        const topNav = document.getElementById('topNav');
+        window.addEventListener('scroll', () => {
+            topNav.classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        // ── LIGHTBOX ────────────────────────────
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const lb     = document.getElementById('lightbox');
+        const lbImg  = document.getElementById('lbImg');
+        const lbClose = document.getElementById('lbClose');
+        const lbPrev = document.getElementById('lbPrev');
+        const lbNext = document.getElementById('lbNext');
+        let lbIndex  = 0;
+
+        const galleryImages = Array.from(galleryItems).map(item => item.querySelector('img').src);
+
+        function openLightbox(idx) {
+            lbIndex = idx;
+            lbImg.src = galleryImages[lbIndex];
+            lb.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lb.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function lbGo(dir) {
+            lbIndex = (lbIndex + dir + galleryImages.length) % galleryImages.length;
+            lbImg.src = galleryImages[lbIndex];
+        }
+
+        galleryItems.forEach((item, i) => {
+            item.addEventListener('click', () => openLightbox(i));
+        });
+
+        lbClose.addEventListener('click', closeLightbox);
+        lbPrev.addEventListener('click', () => lbGo(-1));
+        lbNext.addEventListener('click', () => lbGo(1));
+        lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+
+        document.addEventListener('keydown', e => {
+            if (!lb.classList.contains('open')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') lbGo(-1);
+            if (e.key === 'ArrowRight') lbGo(1);
+        });
+
+        // ── SCROLL REVEAL ────────────────────────
+        const revealEls = document.querySelectorAll('.reveal');
+        const revealObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObs.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-        document.querySelectorAll('.feature-card, .exp-item, .location-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
+        revealEls.forEach(el => revealObs.observe(el));
     </script>
 
 </body>
