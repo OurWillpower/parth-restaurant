@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parth Restaurant & Bar | Premium Konkani Hospitality</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-dark: #222222;
+            --accent-gold: #C5A059;
+            --nature-green: #2D4F1E;
+            --soft-white: #F9F9F9;
+            --text-gray: #555555;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--soft-white);
+            color: var(--primary-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1502301103675-91d572b4505d?auto=format&fit=crop&q=80') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .logo-placeholder {
+            max-width: 200px;
+            margin-bottom: 20px;
+            filter: brightness(0) invert(1); /* Makes black logo white for hero */
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-style: italic;
+            font-size: 1.1rem;
+            max-width: 300px;
+        }
+
+        /* --- USP Banner --- */
+        .usp-bar {
+            background: var(--nature-green);
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-around;
+            font-size: 0.8rem;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* --- Section Styling --- */
+        .section {
+            padding: 60px 25px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-dark);
+        }
+
+        .section-title span {
+            display: block;
+            width: 50px;
+            height: 2px;
+            background: var(--accent-gold);
+            margin: 10px auto;
+        }
+
+        /* --- Features Grid --- */
+        .feature-card {
+            background: white;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .feature-card i {
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* --- Lodging & Nature --- */
+        .highlight-box {
+            background: var(--primary-dark);
+            color: white;
+            padding: 40px 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .highlight-box h3 {
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+        }
+
+        /* --- Sticky Footer Action --- */
+        .mobile-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: white;
+            display: flex;
+            border-top: 1px solid #ddd;
+            z-index: 1000;
+        }
+
+        .nav-item {
+            flex: 1;
+            text-align: center;
+            padding: 15px 0;
+            text-decoration: none;
+            color: var(--primary-dark);
+            font-size: 0.75rem;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .nav-item i {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--accent-gold);
+        }
+
+        .nav-item.active {
+            background: var(--accent-gold);
+            color: white;
+        }
+
+        .nav-item.active i {
+            color: white;
+        }
+
+        /* --- Menu Buttons --- */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--accent-gold);
+            color: white;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .safety-badge {
+            background: #e8f5e9;
+            color: var(--nature-green);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            border: 1px dashed var(--nature-green);
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <img src="parth_logo.jpg" alt="Parth Logo" class="logo-placeholder">
+        <h1>Parth</h1>
+        <p>Homely Satisfaction, Away from Home.</p>
+        <a href="tel:+910000000000" class="btn">Call for Reservation</a>
+    </section>
+
+    <div class="usp-bar">
+        <div><i class="fa-solid fa-person-dress"></i><br>Managed by Women</div>
+        <div><i class="fa-solid fa-leaf"></i><br>No Harsh Colors</div>
+        <div><i class="fa-solid fa-shield-heart"></i><br>100% Safe</div>
+    </div>
+
+    <section class="section">
+        <div class="section-title">
+            <h2>Authentic Konkan</h2>
+            <span></span>
+        </div>
+        <p style="text-align: center; color: var(--text-gray);">
+            Located far from the noisy highways, Parth is a 2-acre sanctuary. We promote traditional foods without chemicals, ensuring every bite is pure and authentic.
+        </p>
+        
+        <div class="feature-card" style="margin-top:30px;">
+            <i class="fa-solid fa-utensils"></i>
+            <h3>The Kitchen</h3>
+            <p>Specialized chefs for Konkani and multifaceted cuisines. Honest ingredients, no fake boasting.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fa-solid fa-glass-martini-alt"></i>
+            <h3>Premium Bar</h3>
+            <p>A wide range of curated liquors to complement your tour and relaxation.</p>
+        </div>
+    </section>
+
+    <section class="section" style="background-color: #fff;">
+        <div class="section-title">
+            <h2>Lodging & Boarding</h2>
+            <span></span>
+        </div>
+        
+        <div class="highlight-box">
+            <h3>Extra Spacious Rooms</h3>
+            <p>Choice of Premium AC and Non-AC rooms designed for complete silence and rest.</p>
+        </div>
+
+        <div class="highlight-box" style="background: var(--nature-green);">
+            <h3>2 Acres of Greenery</h3>
+            <p>Relax beneath Mango and Kaju trees while your children play in a secure, open environment.</p>
+        </div>
+
+        <div class="safety-badge">
+            <i class="fa-solid fa-check-circle"></i> Perfectly safe for women, senior citizens, and kids.
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-title">
+            <h2>Events & Gatherings</h2>
+            <span></span>
+        </div>
+        <p style="text-align:center;">Our Banquet Hall comfortably hosts up to <strong>200 guests</strong> for ceremonies, parties, and corporate get-togethers.</p>
+    </section>
+
+    <div style="height: 80px;"></div> <nav class="mobile-nav">
+        <a href="#" class="nav-item active">
+            <i class="fa-solid fa-house"></i>
+            Home
+        </a>
+        <a href="tel:+910000000000" class="nav-item">
+            <i class="fa-solid fa-phone"></i>
+            Call
+        </a>
+        <a href="https://wa.me/910000000000" class="nav-item">
+            <i class="fa-brands fa-whatsapp"></i>
+            WhatsApp
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fa-solid fa-map-location-dot"></i>
+            Locate
+        </a>
+    </nav>
+
+</body>
+</html>
