@@ -3,253 +3,1088 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parth RBR | Premium Konkani Hospitality</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+    <title>Parth RBR | Authentic Konkani Hospitality</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         :root {
-            --primary-dark: #0f120e;
-            --accent-gold: #c5a059;
-            --nature-green: #2d4f1e;
-            --soft-cream: #f9f7f2;
+            --ink: #1a1a14;
+            --gold: #b8892a;
+            --gold-light: #d4a84b;
+            --cream: #faf7f0;
+            --cream-dark: #f0ebe0;
+            --green-deep: #1e3a10;
+            --green-mid: #2d5416;
+            --green-light: #4a7c28;
+            --terracotta: #c4542a;
             --white: #ffffff;
-            --glass: rgba(255, 255, 255, 0.05);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--soft-cream);
-            color: var(--primary-dark);
-            line-height: 1.6;
+            font-family: 'Jost', sans-serif;
+            background: var(--cream);
+            color: var(--ink);
             overflow-x: hidden;
         }
 
-        /* --- Luxury Header --- */
-        .top-nav {
-            position: absolute;
-            top: 0;
-            width: 100%;
-            z-index: 100;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, transparent 100%);
-        }
-
-        .header-logo {
-            width: 120px;
-            height: 120px;
-            object-fit: contain;
-            background: #fff;
-            padding: 10px;
-            border-radius: 50%;
-            border: 3px solid var(--accent-gold);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        /* --- Hero Slider --- */
-        .hero-slider {
-            height: 80vh;
+        /* ══════════════════════════════════════
+           HERO
+        ══════════════════════════════════════ */
+        .hero {
             position: relative;
+            height: 100svh;
+            min-height: 600px;
             overflow: hidden;
-            background: #000;
         }
 
         .slide {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             background-size: cover;
             background-position: center;
             opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-            z-index: 1;
+            transition: opacity 2s ease-in-out;
         }
+        .slide.active { opacity: 1; }
 
-        .slide.active { 
-            opacity: 1; 
-            z-index: 2;
-        }
+        /* Relevant Konkan/nature/food/hospitality images */
+        .slide-1 { background-image: url('https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=85&w=1800'); }
+        .slide-2 { background-image: url('https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=85&w=1800'); }
+        .slide-3 { background-image: url('https://images.unsplash.com/photo-1596797038530-2c107229654b?q=85&w=1800'); }
+        .slide-4 { background-image: url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=85&w=1800'); }
 
         .hero-overlay {
             position: absolute;
-            bottom: 0;
-            z-index: 10;
-            background: linear-gradient(transparent 10%, rgba(15, 18, 14, 0.95) 100%);
-            width: 100%;
-            padding: 60px 20px;
-            color: white;
-            text-align: center;
+            inset: 0;
+            background: linear-gradient(
+                160deg,
+                rgba(10, 20, 5, 0.45) 0%,
+                rgba(10, 20, 5, 0.2) 40%,
+                rgba(10, 20, 5, 0.75) 100%
+            );
+            z-index: 2;
         }
 
-        .hero-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; letter-spacing: 4px; text-transform: uppercase; }
-        .gold-line { width: 50px; height: 2px; background: var(--accent-gold); margin: 15px auto; }
-        .hero-subtitle { font-style: italic; font-weight: 300; letter-spacing: 1px; color: var(--accent-gold); }
-
-        /* --- Floating USP Bar --- */
-        .usp-container {
+        /* Top nav */
+        .top-nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
             display: flex;
-            background: var(--white);
-            padding: 25px 10px;
-            margin: -35px 20px 0 20px;
-            border-radius: 15px;
-            box-shadow: 0 15px 45px rgba(0,0,0,0.2);
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+        }
+
+        .logo-wrap {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--gold);
+            background: rgba(255,255,255,0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+
+        .logo-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 6px;
+        }
+
+        .nav-contact {
+            display: flex;
+            gap: 12px;
+        }
+
+        .nav-btn {
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .nav-btn:hover, .nav-btn.gold {
+            background: var(--gold);
+            border-color: var(--gold);
+        }
+
+        /* Hero content */
+        .hero-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 5;
+            padding: 50px 30px 100px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-eyebrow {
+            font-size: 0.7rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            font-weight: 500;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3.2rem, 10vw, 6.5rem);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .hero-title span {
+            display: block;
+            font-size: 0.35em;
+            font-weight: 400;
+            font-style: italic;
+            letter-spacing: 6px;
+            color: var(--gold-light);
+            margin-top: 8px;
+        }
+
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        .ornament-line {
+            width: 60px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .ornament-diamond {
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            transform: rotate(45deg);
+        }
+
+        .hero-sub {
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            font-weight: 300;
+            opacity: 0.85;
+            text-transform: uppercase;
+        }
+
+        /* Slide indicators */
+        .slide-dots {
+            position: absolute;
+            bottom: 140px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 6;
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 24px;
+            height: 2px;
+            background: rgba(255,255,255,0.4);
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: var(--gold);
+            width: 40px;
+        }
+
+        /* ══════════════════════════════════════
+           FLOATING USP
+        ══════════════════════════════════════ */
+        .usp-bar {
+            margin: -40px 20px 0;
             position: relative;
-            z-index: 30;
+            z-index: 20;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            overflow: hidden;
         }
 
         .usp-item {
-            flex: 1;
+            padding: 22px 10px;
             text-align: center;
+            border-right: 1px solid var(--cream-dark);
+            transition: background 0.3s;
+        }
+
+        .usp-item:last-child { border-right: none; }
+        .usp-item:hover { background: var(--cream); }
+
+        .usp-item i {
+            font-size: 1.4rem;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .usp-label {
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--green-deep);
+            line-height: 1.4;
+        }
+
+        /* ══════════════════════════════════════
+           SECTION STYLES
+        ══════════════════════════════════════ */
+        .section { padding: 80px 25px; }
+        .section-sm { padding: 50px 25px; }
+
+        .section-tag {
             font-size: 0.65rem;
-            font-weight: 700;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            color: var(--nature-green);
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: block;
         }
 
-        .usp-item i { font-size: 1.5rem; display: block; margin-bottom: 8px; color: var(--accent-gold); }
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 6vw, 3rem);
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--ink);
+            margin-bottom: 16px;
+        }
 
-        /* --- Scrolling Cards --- */
-        .spec-scroll {
+        .section-title em {
+            color: var(--green-deep);
+            font-style: italic;
+        }
+
+        .divider {
             display: flex;
-            overflow-x: auto;
-            gap: 20px;
-            padding: 30px 5px;
-            scrollbar-width: none;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
         }
-        .spec-scroll::-webkit-scrollbar { display: none; }
 
-        .spec-card {
-            min-width: 300px;
-            background: white;
-            border-radius: 20px;
+        .divider-line { height: 1px; background: var(--gold); width: 40px; }
+        .divider-diamond { width: 5px; height: 5px; background: var(--gold); transform: rotate(45deg); }
+
+        .body-text {
+            font-size: 0.92rem;
+            line-height: 1.85;
+            color: #555;
+            max-width: 560px;
+        }
+
+        /* ══════════════════════════════════════
+           ABOUT / INTRO
+        ══════════════════════════════════════ */
+        .intro-grid {
+            display: grid;
+            gap: 40px;
+        }
+
+        .intro-image {
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            position: relative;
         }
 
-        .spec-img { height: 200px; background-size: cover; background-position: center; border-bottom: 3px solid var(--accent-gold); }
-        .spec-content { padding: 25px; }
-
-        /* --- Dark Bar Section --- */
-        .dark-panel {
-            background: var(--primary-dark);
-            color: white;
-            padding: 80px 30px;
-            margin: 0 20px;
-            border-radius: 30px;
-            text-align: center;
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=1200');
-            background-size: cover;
+        .intro-image img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            display: block;
         }
 
-        .btn-gold {
-            background: var(--accent-gold);
+        .intro-image-badge {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            background: var(--green-deep);
             color: white;
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            display: inline-block;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 0.7rem;
             font-weight: 700;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            margin-top: 25px;
         }
 
-        /* --- Navigation Dock --- */
+        .intro-image-badge span {
+            display: block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 0;
+            line-height: 1;
+            margin-bottom: 2px;
+        }
+
+        /* ══════════════════════════════════════
+           FEATURES CARDS
+        ══════════════════════════════════════ */
+        .cards-scroll {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            padding: 10px 5px 20px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .cards-scroll::-webkit-scrollbar { display: none; }
+
+        .feature-card {
+            min-width: 260px;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.07);
+            flex-shrink: 0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+        }
+
+        .card-img {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .card-img-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent 50%, rgba(0,0,0,0.5) 100%);
+        }
+
+        .card-body { padding: 20px; }
+
+        .card-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 8px;
+        }
+
+        .card-text {
+            font-size: 0.82rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .card-tag {
+            display: inline-block;
+            background: var(--cream-dark);
+            color: var(--green-deep);
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* ══════════════════════════════════════
+           EXPERIENCE SECTION (dark)
+        ══════════════════════════════════════ */
+        .experience-section {
+            margin: 0 20px;
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            background: var(--green-deep);
+        }
+
+        .experience-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1540553016722-983e48a2cd10?q=80&w=1200');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+        }
+
+        .experience-content {
+            position: relative;
+            z-index: 2;
+            padding: 60px 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .experience-content .section-tag { color: var(--gold-light); }
+        .experience-content .section-title { color: white; }
+        .experience-content .section-title em { color: var(--gold-light); }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 30px 0;
+        }
+
+        .exp-item {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 12px;
+            padding: 20px 14px;
+            text-align: center;
+        }
+
+        .exp-item i {
+            font-size: 1.6rem;
+            color: var(--gold-light);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .exp-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .exp-desc {
+            font-size: 0.75rem;
+            opacity: 0.7;
+            line-height: 1.5;
+        }
+
+        /* ══════════════════════════════════════
+           BAR SECTION
+        ══════════════════════════════════════ */
+        .bar-section {
+            background: var(--ink);
+            margin: 40px 20px 0;
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bar-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?q=80&w=1200');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.25;
+        }
+
+        .bar-content {
+            position: relative;
+            z-index: 2;
+            padding: 55px 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .bar-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        .bar-content .section-title { color: white; }
+
+        .bar-features {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 20px 0 28px;
+        }
+
+        .bar-feat {
+            font-size: 0.7rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            font-weight: 600;
+        }
+
+        .bar-feat::before {
+            content: '◆ ';
+            font-size: 0.5rem;
+        }
+
+        /* ══════════════════════════════════════
+           LOCATION
+        ══════════════════════════════════════ */
+        .location-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.07);
+        }
+
+        .location-card .section-title { font-size: 1.6rem; }
+
+        .location-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+
+        .location-detail i {
+            color: var(--gold);
+            font-size: 1.1rem;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .location-detail p {
+            font-size: 0.88rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .location-detail strong { color: var(--ink); }
+
+        /* ══════════════════════════════════════
+           TESTIMONIAL
+        ══════════════════════════════════════ */
+        .testimonial-section {
+            background: var(--cream-dark);
+            padding: 60px 30px;
+            text-align: center;
+        }
+
+        .testimonial-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            line-height: 1.6;
+            color: var(--green-deep);
+            max-width: 500px;
+            margin: 20px auto 20px;
+        }
+
+        .testimonial-author {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        /* ══════════════════════════════════════
+           CTA STRIP
+        ══════════════════════════════════════ */
+        .cta-strip {
+            background: var(--gold);
+            padding: 24px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .cta-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .cta-text small {
+            display: block;
+            font-family: 'Jost', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 400;
+            opacity: 0.85;
+            margin-top: 2px;
+        }
+
+        .cta-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+        .btn {
+            padding: 12px 22px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--ink);
+        }
+
+        .btn-dark {
+            background: var(--ink);
+            color: white;
+        }
+
+        .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+
+        /* ══════════════════════════════════════
+           BOTTOM NAV DOCK
+        ══════════════════════════════════════ */
         .nav-dock {
             position: fixed;
-            bottom: 20px;
+            bottom: 16px;
             left: 50%;
             transform: translateX(-50%);
-            width: 90%;
-            background: rgba(15, 18, 14, 0.98);
+            width: calc(100% - 40px);
+            max-width: 420px;
+            background: rgba(15, 20, 10, 0.97);
+            backdrop-filter: blur(20px);
             display: flex;
             justify-content: space-around;
-            padding: 15px;
-            border-radius: 50px;
+            padding: 14px 10px;
+            border-radius: 60px;
             z-index: 1000;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.08);
         }
 
-        .nav-link { text-decoration: none; color: white; font-size: 0.7rem; text-align: center; font-weight: 600; }
-        .nav-link i { display: block; font-size: 1.4rem; color: var(--accent-gold); margin-bottom: 4px; }
+        .dock-link {
+            text-decoration: none;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.6rem;
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
 
-        .spacer { height: 120px; }
+        .dock-link:hover { color: var(--gold-light); }
+
+        .dock-link i {
+            font-size: 1.25rem;
+            display: block;
+            color: var(--gold);
+        }
+
+        .dock-link.whatsapp i { color: #25D366; }
+
+        .spacer-dock { height: 100px; }
+
+        /* ══════════════════════════════════════
+           FOOTER
+        ══════════════════════════════════════ */
+        .footer {
+            background: var(--ink);
+            color: rgba(255,255,255,0.5);
+            text-align: center;
+            padding: 28px 25px 120px;
+            font-size: 0.75rem;
+        }
+
+        .footer strong { color: var(--gold); }
+        .footer a { color: var(--gold-light); text-decoration: none; }
+
+        /* ══════════════════════════════════════
+           RESPONSIVE — tablet/desktop
+        ══════════════════════════════════════ */
+        @media (min-width: 768px) {
+            .usp-bar { margin: -40px 40px 0; }
+            .intro-grid { grid-template-columns: 1fr 1fr; align-items: center; }
+            .intro-image img { height: 340px; }
+            .experience-grid { grid-template-columns: repeat(4, 1fr); }
+            .section { padding: 100px 40px; }
+            .experience-section { margin: 0 40px; }
+            .bar-section { margin: 50px 40px 0; }
+        }
+
+        @media (min-width: 1024px) {
+            .usp-bar { margin: -50px 60px 0; max-width: 900px; margin-left: auto; margin-right: auto; }
+            .cards-scroll { justify-content: center; }
+        }
+
+        /* Fade in animations */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-up {
+            animation: fadeUp 0.8s ease both;
+        }
+
+        .delay-1 { animation-delay: 0.15s; }
+        .delay-2 { animation-delay: 0.3s; }
+        .delay-3 { animation-delay: 0.45s; }
+        .delay-4 { animation-delay: 0.6s; }
     </style>
 </head>
 <body>
 
+    <!-- ══ TOP NAV ══ -->
     <nav class="top-nav">
-        <img src="parth logo.jpg" alt="Parth Logo" class="header-logo">
+        <div class="logo-wrap">
+            <img src="parth logo.jpg" alt="Parth RBR Logo">
+        </div>
+        <div class="nav-contact">
+            <a href="tel:+919987456703" class="nav-btn"><i class="fa-solid fa-phone"></i> Call</a>
+            <a href="https://wa.me/919987456703" class="nav-btn gold"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        </div>
     </nav>
 
-    <header class="hero-slider">
-        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1600');"></div>
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1600');"></div>
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1589187151032-573a91317445?q=80&w=1600');"></div>
-        
-        <div class="hero-overlay">
-            <h1 class="hero-title">PARTH RBR</h1>
-            <div class="gold-line"></div>
-            <p class="hero-subtitle">Homely Satisfaction • Managed by Women</p>
+    <!-- ══ HERO ══ -->
+    <header class="hero">
+        <div class="slide slide-1 active"></div>
+        <div class="slide slide-2"></div>
+        <div class="slide slide-3"></div>
+        <div class="slide slide-4"></div>
+
+        <div class="hero-overlay"></div>
+
+        <div class="slide-dots" id="dots">
+            <div class="dot active" onclick="goSlide(0)"></div>
+            <div class="dot" onclick="goSlide(1)"></div>
+            <div class="dot" onclick="goSlide(2)"></div>
+            <div class="dot" onclick="goSlide(3)"></div>
+        </div>
+
+        <div class="hero-content fade-up">
+            <span class="hero-eyebrow">Titha Flyover Junction · Konkan</span>
+            <h1 class="hero-title">
+                Parth RBR
+                <span>Restaurant · Bar · Rooms</span>
+            </h1>
+            <div class="ornament">
+                <div class="ornament-line"></div>
+                <div class="ornament-diamond"></div>
+                <div class="ornament-line"></div>
+            </div>
+            <p class="hero-sub">Homely Satisfaction · Managed by Women · 2 Acres of Nature</p>
         </div>
     </header>
 
-    <div class="usp-container">
-        <div class="usp-item"><i class="fa-solid fa-person-dress"></i>Women Led</div>
-        <div class="usp-item"><i class="fa-solid fa-vial-circle-check"></i>No Chemicals</div>
-        <div class="usp-item"><i class="fa-solid fa-shield-heart"></i>Safe Sanctuary</div>
+    <!-- ══ USP BAR ══ -->
+    <div class="usp-bar fade-up delay-2">
+        <div class="usp-item">
+            <i class="fa-solid fa-person-dress"></i>
+            <div class="usp-label">Women<br>Managed</div>
+        </div>
+        <div class="usp-item">
+            <i class="fa-solid fa-seedling"></i>
+            <div class="usp-label">No Artificial<br>Colors</div>
+        </div>
+        <div class="usp-item">
+            <i class="fa-solid fa-tree"></i>
+            <div class="usp-label">2 Acres<br>Mango Grove</div>
+        </div>
+        <div class="usp-item">
+            <i class="fa-solid fa-shield-heart"></i>
+            <div class="usp-label">Family<br>Safe</div>
+        </div>
     </div>
 
-    <section class="section center" style="padding: 60px 25px;">
-        <h2 style="font-family: 'Playfair Display'; font-size: 1.8rem;">The Spirit of Konkan</h2>
-        <div class="gold-line"></div>
-        <p style="color: #666; margin-bottom: 20px;">Experience 2 acres of silent Mango and Kaju groves at the Titha Flyover junction.</p>
-        
-        <div class="spec-scroll">
-            <div class="spec-card">
-                <div class="spec-img" style="background-image: url('https://images.unsplash.com/photo-1626132646529-500337552978?q=80&w=800');"></div>
-                <div class="spec-content">
-                    <h3>Authentic Dining</h3>
-                    <p style="font-size: 0.85rem; color: #555;">Traditional recipes by specialized chefs with zero artificial colors.</p>
-                </div>
+    <!-- ══ INTRO ══ -->
+    <section class="section">
+        <div class="intro-grid">
+            <div>
+                <span class="section-tag">Our Story</span>
+                <h2 class="section-title">The <em>Spirit of Konkan</em><br>Lives Here</h2>
+                <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div></div>
+                <p class="body-text">
+                    Nestled at the Titha Flyover junction, Parth RBR sits on 2 lush acres of Mango and Kaju groves — a true Konkani sanctuary. Proudly managed by women, we believe great hospitality begins at home: in the warmth of a meal cooked without shortcuts, and a room prepared with care.
+                </p>
+                <br>
+                <p class="body-text">
+                    Whether you're a traveler seeking a rest stop on the highway, or a local looking for authentic Konkani flavors and the finest selection of beverages, Parth RBR is your destination.
+                </p>
             </div>
-            <div class="spec-card">
-                <div class="spec-img" style="background-image: url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=800');"></div>
-                <div class="spec-content">
-                    <h3>Premium Rooms</h3>
-                    <p style="font-size: 0.85rem; color: #555;">AC and Non-AC stays designed for travelers seeking complete silence.</p>
+            <div class="intro-image">
+                <img src="https://images.unsplash.com/photo-1598511796432-32e98afc5fd8?q=80&w=900" alt="Konkan landscape">
+                <div class="intro-image-badge">
+                    <span>2 Acres</span>
+                    Mango & Kaju Grove
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="dark-panel">
-        <h2 style="color: var(--accent-gold); font-family: 'Playfair Display'; font-size: 2rem;">Premium Bar</h2>
-        <p style="opacity: 0.9;">The widest range of liquors in a family-friendly environment.</p>
-        <a href="tel:+919987456703" class="btn-gold">Call Now</a>
+    <!-- ══ FEATURES ══ -->
+    <section style="padding: 0 15px 70px;">
+        <div style="padding: 0 10px 20px;">
+            <span class="section-tag">What We Offer</span>
+            <h2 class="section-title">The <em>Parth Experience</em></h2>
+        </div>
+
+        <div class="cards-scroll">
+            <div class="feature-card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?q=80&w=800')">
+                    <div class="card-img-overlay"></div>
+                </div>
+                <div class="card-body">
+                    <span class="card-tag">Dining</span>
+                    <h3 class="card-title">Authentic Konkani Cuisine</h3>
+                    <p class="card-text">Traditional recipes by specialized chefs — zero artificial colors, all natural ingredients, full Konkani heart.</p>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=800')">
+                    <div class="card-img-overlay"></div>
+                </div>
+                <div class="card-body">
+                    <span class="card-tag">Stay</span>
+                    <h3 class="card-title">Premium Rooms</h3>
+                    <p class="card-text">AC and Non-AC options designed for travelers craving silence, cleanliness, and a true home-away-from-home.</p>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=800')">
+                    <div class="card-img-overlay"></div>
+                </div>
+                <div class="card-body">
+                    <span class="card-tag">Bar</span>
+                    <h3 class="card-title">Premium Bar</h3>
+                    <p class="card-text">The widest range of liquors in the region, served in a comfortable, family-welcoming environment.</p>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1474031317822-f51f48735ddd?q=80&w=800')">
+                    <div class="card-img-overlay"></div>
+                </div>
+                <div class="card-body">
+                    <span class="card-tag">Nature</span>
+                    <h3 class="card-title">Mango & Kaju Grove</h3>
+                    <p class="card-text">Walk through 2 acres of silent, fragrant mango and cashew groves — the essence of Konkan countryside.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ EXPERIENCE ══ -->
+    <div class="experience-section">
+        <div class="experience-bg"></div>
+        <div class="experience-content">
+            <span class="section-tag">Why Choose Us</span>
+            <h2 class="section-title">A Place Where <em>Every Detail</em> Matters</h2>
+            <div class="experience-grid">
+                <div class="exp-item">
+                    <i class="fa-solid fa-utensils"></i>
+                    <div class="exp-title">Home-Style Cooking</div>
+                    <div class="exp-desc">Recipes passed down through generations, made fresh daily</div>
+                </div>
+                <div class="exp-item">
+                    <i class="fa-solid fa-bottle-water"></i>
+                    <div class="exp-title">Chemical Free</div>
+                    <div class="exp-desc">No artificial flavors or colors in any of our food</div>
+                </div>
+                <div class="exp-item">
+                    <i class="fa-solid fa-road"></i>
+                    <div class="exp-title">Highway Location</div>
+                    <div class="exp-desc">Prime spot at Titha Flyover junction — easy access</div>
+                </div>
+                <div class="exp-item">
+                    <i class="fa-solid fa-moon"></i>
+                    <div class="exp-title">Peaceful Retreat</div>
+                    <div class="exp-desc">Silent, nature-surrounded setting for complete relaxation</div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="spacer"></div>
+    <!-- ══ BAR ══ -->
+    <div class="bar-section">
+        <div class="bar-bg"></div>
+        <div class="bar-content">
+            <div class="bar-icon"><i class="fa-solid fa-whiskey-glass"></i></div>
+            <h2 class="section-title">Premium Bar</h2>
+            <p style="opacity:0.75; font-size: 0.9rem; margin-top: 8px;">The widest selection in the region — served right</p>
+            <div class="bar-features">
+                <span class="bar-feat">Widest Range of Liquors</span>
+                <span class="bar-feat">Family-Friendly Setup</span>
+                <span class="bar-feat">Chilled Beers</span>
+                <span class="bar-feat">Spirits & More</span>
+            </div>
+            <a href="tel:+919987456703" class="btn btn-white">
+                <i class="fa-solid fa-phone"></i> Reserve a Table
+            </a>
+        </div>
+    </div>
 
+    <!-- ══ TESTIMONIAL ══ -->
+    <div class="testimonial-section">
+        <span class="section-tag">Guest Love</span>
+        <p class="testimonial-quote">
+            "The kind of place that makes you feel like you never left home — real food, real warmth, and a setting that only Konkan can offer."
+        </p>
+        <div class="ornament" style="justify-content:center; margin: 10px 0;">
+            <div class="ornament-line" style="background:#b8892a;"></div>
+            <div class="ornament-diamond" style="background:#b8892a;"></div>
+            <div class="ornament-line" style="background:#b8892a;"></div>
+        </div>
+        <p class="testimonial-author">Satisfied Guest · Parth RBR</p>
+    </div>
+
+    <!-- ══ LOCATION ══ -->
+    <section class="section-sm" style="padding: 50px 25px;">
+        <span class="section-tag">Find Us</span>
+        <h2 class="section-title" style="margin-bottom: 24px;">Visit <em>Parth RBR</em></h2>
+
+        <div class="location-card">
+            <div class="location-detail">
+                <i class="fa-solid fa-map-pin"></i>
+                <p><strong>Titha Flyover Junction</strong><br>Konkan, Maharashtra, India</p>
+            </div>
+            <div class="location-detail">
+                <i class="fa-solid fa-phone"></i>
+                <p><a href="tel:+919987456703" style="color: var(--gold); font-weight:600;">+91 99874 56703</a></p>
+            </div>
+            <div class="location-detail">
+                <i class="fa-brands fa-whatsapp"></i>
+                <p><a href="https://wa.me/919987456703" style="color: #25D366; font-weight:600;">Chat on WhatsApp</a></p>
+            </div>
+            <div class="location-detail">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <p><a href="https://share.google/A8innDKwD6UXdOhOD" target="_blank" style="color: var(--gold); font-weight:600;">Open in Google Maps →</a></p>
+            </div>
+
+            <a href="https://share.google/A8innDKwD6UXdOhOD" target="_blank" class="btn btn-dark" style="margin-top: 10px; display: inline-flex;">
+                <i class="fa-solid fa-location-dot"></i> Get Directions
+            </a>
+        </div>
+    </section>
+
+    <!-- ══ CTA STRIP ══ -->
+    <div class="cta-strip">
+        <div class="cta-text">
+            Ready to Visit?
+            <small>Call or WhatsApp us — we're always ready to welcome you.</small>
+        </div>
+        <div class="cta-actions">
+            <a href="tel:+919987456703" class="btn btn-white"><i class="fa-solid fa-phone"></i> Call Now</a>
+            <a href="https://wa.me/919987456703" class="btn btn-dark"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        </div>
+    </div>
+
+    <!-- ══ FOOTER ══ -->
+    <footer class="footer">
+        <strong>Parth RBR</strong> &nbsp;·&nbsp; Restaurant · Bar · Rooms<br>
+        Titha Flyover Junction, Konkan &nbsp;·&nbsp;
+        <a href="tel:+919987456703">+91 99874 56703</a><br><br>
+        © 2025 Parth RBR. Proudly managed by women. All rights reserved.
+    </footer>
+
+    <!-- ══ BOTTOM NAV DOCK ══ -->
     <nav class="nav-dock">
-        <a href="tel:+919987456703" class="nav-link"><i class="fa-solid fa-phone"></i>CALL</a>
-        <a href="https://wa.me/919987456703" class="nav-link" style="color: #25D366;"><i class="fa-brands fa-whatsapp"></i>CHAT</a>
-        <a href="https://share.google/A8innDKwD6UXdOhOD" class="nav-link"><i class="fa-solid fa-map-location-dot"></i>LOCATE</a>
+        <a href="tel:+919987456703" class="dock-link">
+            <i class="fa-solid fa-phone"></i> Call
+        </a>
+        <a href="https://wa.me/919987456703" class="dock-link whatsapp">
+            <i class="fa-brands fa-whatsapp"></i> Chat
+        </a>
+        <a href="https://share.google/A8innDKwD6UXdOhOD" target="_blank" class="dock-link">
+            <i class="fa-solid fa-map-location-dot"></i> Locate
+        </a>
     </nav>
 
     <script>
-        let currentSlide = 0;
+        // ── Slider ──
+        let current = 0;
         const slides = document.querySelectorAll('.slide');
-        function nextSlide() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
+        const dots   = document.querySelectorAll('.dot');
+        let timer;
+
+        function goSlide(n) {
+            slides[current].classList.remove('active');
+            dots[current].classList.remove('active');
+            current = n;
+            slides[current].classList.add('active');
+            dots[current].classList.add('active');
         }
-        setInterval(nextSlide, 5000);
-    </script
+
+        function nextSlide() {
+            goSlide((current + 1) % slides.length);
+        }
+
+        function startTimer() {
+            timer = setInterval(nextSlide, 5000);
+        }
+
+        startTimer();
+
+        // Pause on dot click
+        document.querySelectorAll('.dot').forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                clearInterval(timer);
+                goSlide(i);
+                startTimer();
+            });
+        });
+
+        // ── Scroll fade-up for sections ──
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.style.opacity = '1';
+                    e.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.feature-card, .exp-item, .location-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+</html>
