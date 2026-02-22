@@ -3,42 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parth Restaurant & Bar | Premium Konkani Hospitality</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Parth Restaurant & Bar | Authentic Konkani Luxury</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-dark: #222222;
-            --accent-gold: #C5A059;
-            --nature-green: #2D4F1E;
-            --soft-white: #F9F9F9;
-            --text-gray: #555555;
+            --primary-dark: #1a1a1a;
+            --accent-gold: #d4af37;
+            --nature-green: #2e4d23;
+            --soft-cream: #fdfbf7;
+            --text-muted: #666;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: 'Lato', sans-serif;
-            background-color: var(--soft-white);
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--soft-cream);
             color: var(--primary-dark);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-        }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
         /* --- Hero Section --- */
         .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1502301103675-91d572b4505d?auto=format&fit=crop&q=80') center/cover no-repeat;
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=2070&auto=format&fit=crop'); 
+            background-size: cover;
+            background-position: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -48,233 +43,158 @@
             padding: 20px;
         }
 
-        .logo-placeholder {
-            max-width: 200px;
-            margin-bottom: 20px;
-            filter: brightness(0) invert(1); /* Makes black logo white for hero */
-        }
+        .hero h1 { font-size: 3rem; margin-bottom: 10px; letter-spacing: 2px; }
+        .hero p { font-size: 1.1rem; font-style: italic; opacity: 0.9; }
 
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
+        /* --- Global Section Styling --- */
+        .section { padding: 80px 20px; max-width: 600px; margin: 0 auto; }
+        .center { text-align: center; }
+        .gold-line { width: 60px; height: 2px; background: var(--accent-gold); margin: 20px auto; }
 
-        .hero p {
-            font-style: italic;
-            font-size: 1.1rem;
-            max-width: 300px;
-        }
-
-        /* --- USP Banner --- */
-        .usp-bar {
-            background: var(--nature-green);
-            color: white;
-            padding: 15px;
-            display: flex;
-            justify-content: space-around;
-            font-size: 0.8rem;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        /* --- Section Styling --- */
-        .section {
-            padding: 60px 25px;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .section-title h2 {
-            font-size: 2rem;
-            color: var(--primary-dark);
-        }
-
-        .section-title span {
-            display: block;
-            width: 50px;
-            height: 2px;
-            background: var(--accent-gold);
-            margin: 10px auto;
-        }
-
-        /* --- Features Grid --- */
-        .feature-card {
+        /* --- Managed by Women Banner --- */
+        .badge-row {
             background: white;
-            padding: 30px;
+            padding: 30px 10px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        .badge-row i { color: var(--nature-green); font-size: 1.4rem; margin-bottom: 8px; }
+        .badge-row span { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* --- Image Grid --- */
+        .img-container {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 8px;
             margin-bottom: 20px;
-            border-radius: 5px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-bottom: 3px solid var(--accent-gold);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
+        .img-container img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
 
-        .feature-card i {
-            color: var(--accent-gold);
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
+        /* --- Specific Section: Dining --- */
+        .dining-card { background: white; padding: 25px; border-radius: 12px; margin-top: -50px; position: relative; z-index: 2; box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
 
-        /* --- Lodging & Nature --- */
-        .highlight-box {
-            background: var(--primary-dark);
+        /* --- Specific Section: Bar (Dark Theme) --- */
+        .bar-section { background: var(--primary-dark); color: white; border-radius: 20px; margin: 20px; padding: 60px 25px; }
+        .bar-section h2 { color: var(--accent-gold); }
+
+        /* --- Greenery Section --- */
+        .nature-card {
+            background: linear-gradient(rgba(46, 77, 35, 0.8), rgba(46, 77, 35, 0.8)), 
+                        url('https://images.unsplash.com/photo-1598910484518-e39d56738980?q=80&w=1974&auto=format&fit=crop');
+            background-size: cover;
+            padding: 50px 25px;
             color: white;
-            padding: 40px 25px;
             border-radius: 15px;
-            margin-bottom: 30px;
+            margin-top: 40px;
         }
 
-        .highlight-box h3 {
-            color: var(--accent-gold);
-            margin-bottom: 15px;
-        }
-
-        /* --- Sticky Footer Action --- */
-        .mobile-nav {
+        /* --- Sticky Footer --- */
+        .cta-footer {
             position: fixed;
             bottom: 0;
             width: 100%;
             background: white;
-            display: flex;
-            border-top: 1px solid #ddd;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid #eee;
             z-index: 1000;
         }
-
-        .nav-item {
-            flex: 1;
-            text-align: center;
+        .cta-btn {
             padding: 15px 0;
+            text-align: center;
             text-decoration: none;
             color: var(--primary-dark);
-            font-size: 0.75rem;
-            font-weight: bold;
-            transition: 0.3s;
+            font-size: 0.7rem;
+            font-weight: 600;
         }
+        .cta-btn i { display: block; font-size: 1.2rem; color: var(--accent-gold); margin-bottom: 4px; }
+        .cta-btn.book { background: var(--accent-gold); color: white; }
+        .cta-btn.book i { color: white; }
 
-        .nav-item i {
-            display: block;
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-            color: var(--accent-gold);
-        }
-
-        .nav-item.active {
-            background: var(--accent-gold);
-            color: white;
-        }
-
-        .nav-item.active i {
-            color: white;
-        }
-
-        /* --- Menu Buttons --- */
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: var(--accent-gold);
-            color: white;
-            text-decoration: none;
-            border-radius: 2px;
-            font-weight: bold;
-            margin-top: 20px;
-        }
-
-        .safety-badge {
-            background: #e8f5e9;
-            color: var(--nature-green);
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            margin-top: 10px;
-            border: 1px dashed var(--nature-green);
-        }
+        .tagline { font-size: 0.9rem; color: var(--text-muted); margin-top: 15px; }
     </style>
 </head>
 <body>
 
-    <section class="hero">
-        <img src="parth_logo.jpg" alt="Parth Logo" class="logo-placeholder">
-        <h1>Parth</h1>
-        <p>Homely Satisfaction, Away from Home.</p>
-        <a href="tel:+910000000000" class="btn">Call for Reservation</a>
-    </section>
+    <header class="hero">
+        <h1 style="border: 2px solid white; padding: 10px 20px;">PARTH</h1>
+        <p>RESTAURANT & BAR</p>
+        <div class="gold-line"></div>
+        <p>Pure. Traditional. Serene.</p>
+    </header>
 
-    <div class="usp-bar">
-        <div><i class="fa-solid fa-person-dress"></i><br>Managed by Women</div>
-        <div><i class="fa-solid fa-leaf"></i><br>No Harsh Colors</div>
-        <div><i class="fa-solid fa-shield-heart"></i><br>100% Safe</div>
+    <div class="badge-row">
+        <div><i class="fa-solid fa-venus"></i><br><span>Women Managed</span></div>
+        <div><i class="fa-solid fa-seedling"></i><br><span>No Chemicals</span></div>
+        <div><i class="fa-solid fa-shield-heart"></i><br><span>Safe Haven</span></div>
     </div>
 
-    <section class="section">
-        <div class="section-title">
-            <h2>Authentic Konkan</h2>
-            <span></span>
+    <section class="section center">
+        <div class="img-container">
+            <img src="https://images.unsplash.com/photo-1613292443284-8d10ef9383fe?q=80&w=1974&auto=format&fit=crop" alt="Traditional Konkani Food">
         </div>
-        <p style="text-align: center; color: var(--text-gray);">
-            Located far from the noisy highways, Parth is a 2-acre sanctuary. We promote traditional foods without chemicals, ensuring every bite is pure and authentic.
-        </p>
-        
-        <div class="feature-card" style="margin-top:30px;">
-            <i class="fa-solid fa-utensils"></i>
-            <h3>The Kitchen</h3>
-            <p>Specialized chefs for Konkani and multifaceted cuisines. Honest ingredients, no fake boasting.</p>
-        </div>
-
-        <div class="feature-card">
-            <i class="fa-solid fa-glass-martini-alt"></i>
-            <h3>Premium Bar</h3>
-            <p>A wide range of curated liquors to complement your tour and relaxation.</p>
+        <div class="dining-card">
+            <h2>The Soul of Konkan</h2>
+            <div class="gold-line"></div>
+            <p>We believe in the purity of ingredients. Our specialized chefs curate authentic Konkani flavors and multifaceted global cuisines without a single drop of artificial color.</p>
+            <p class="tagline">Homely food away from home.</p>
         </div>
     </section>
 
-    <section class="section" style="background-color: #fff;">
-        <div class="section-title">
-            <h2>Lodging & Boarding</h2>
-            <span></span>
-        </div>
-        
-        <div class="highlight-box">
-            <h3>Extra Spacious Rooms</h3>
-            <p>Choice of Premium AC and Non-AC rooms designed for complete silence and rest.</p>
-        </div>
-
-        <div class="highlight-box" style="background: var(--nature-green);">
-            <h3>2 Acres of Greenery</h3>
-            <p>Relax beneath Mango and Kaju trees while your children play in a secure, open environment.</p>
-        </div>
-
-        <div class="safety-badge">
-            <i class="fa-solid fa-check-circle"></i> Perfectly safe for women, senior citizens, and kids.
+    <section class="section center" style="padding-top: 0;">
+        <h2>Lodging & Boarding</h2>
+        <div class="gold-line"></div>
+        <p style="margin-bottom: 30px;">Extra spacious AC and Non-AC rooms designed for complete silence and restorative sleep.</p>
+        <div class="img-container" style="height: 350px;">
+            <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=2070&auto=format&fit=crop" alt="Spacious Hotel Room">
         </div>
     </section>
 
-    <section class="section">
-        <div class="section-title">
-            <h2>Events & Gatherings</h2>
-            <span></span>
+    <div class="bar-section center">
+        <i class="fa-solid fa-glass-whiskey" style="font-size: 2rem; color: var(--accent-gold); margin-bottom: 15px;"></i>
+        <h2>The Premium Bar</h2>
+        <p>Unwind with our curated selection of fine liquors in a sophisticated, private atmosphere.</p>
+        <div class="gold-line"></div>
+        <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop" style="width: 100%; border-radius: 10px; margin-top: 20px;" alt="Premium Bar Selection">
+    </div>
+
+    <section class="section center">
+        <h2>2 Acres of Serenity</h2>
+        <div class="gold-line"></div>
+        <p>Nestled far from noisy highways, relax under our Mango and Kaju trees. A perfect playground for kids and a peaceful retreat for seniors.</p>
+        <div class="nature-card">
+            <h3>Breathe in Nature</h3>
+            <p>Authentic beauty that doesn't need fake boasting.</p>
         </div>
-        <p style="text-align:center;">Our Banquet Hall comfortably hosts up to <strong>200 guests</strong> for ceremonies, parties, and corporate get-togethers.</p>
     </section>
 
-    <div style="height: 80px;"></div> <nav class="mobile-nav">
-        <a href="#" class="nav-item active">
-            <i class="fa-solid fa-house"></i>
-            Home
+    <section class="section center" style="background: #eee; max-width: 100%;">
+        <h2>Celebrate with Us</h2>
+        <p>Our Banquet Hall hosts up to 200 guests for parties and ceremonies.</p>
+        <a href="tel:+910000000000" style="color: var(--nature-green); font-weight: 700; text-decoration: none; display: block; margin-top: 15px;">Enquire About Events →</a>
+    </section>
+
+    <div style="height: 100px;"></div>
+
+    <footer class="cta-footer">
+        <a href="#" class="cta-btn">
+            <i class="fa-solid fa-utensils"></i>Menu
         </a>
-        <a href="tel:+910000000000" class="nav-item">
-            <i class="fa-solid fa-phone"></i>
-            Call
+        <a href="tel:+910000000000" class="cta-btn">
+            <i class="fa-solid fa-phone"></i>Call
         </a>
-        <a href="https://wa.me/910000000000" class="nav-item">
-            <i class="fa-brands fa-whatsapp"></i>
-            WhatsApp
+        <a href="https://wa.me/910000000000" class="cta-btn">
+            <i class="fa-brands fa-whatsapp"></i>Chat
         </a>
-        <a href="#" class="nav-item">
-            <i class="fa-solid fa-map-location-dot"></i>
-            Locate
+        <a href="#" class="cta-btn book">
+            <i class="fa-solid fa-calendar-check"></i>Book Now
         </a>
-    </nav>
+    </footer>
 
 </body>
 </html>
