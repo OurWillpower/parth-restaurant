@@ -50,7 +50,7 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        /* --- Full-Featured Hero Slider --- */
+        /* --- Hero Slider --- */
         .hero-slider {
             height: 80vh;
             position: relative;
@@ -69,14 +69,11 @@
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
             z-index: 1;
-            transform: scale(1.1);
         }
 
         .slide.active { 
             opacity: 1; 
             z-index: 2;
-            transform: scale(1);
-            transition: opacity 1.5s ease-in-out, transform 10s linear;
         }
 
         .hero-overlay {
@@ -117,11 +114,7 @@
 
         .usp-item i { font-size: 1.5rem; display: block; margin-bottom: 8px; color: var(--accent-gold); }
 
-        /* --- Section Styling --- */
-        .section { padding: 60px 25px; }
-        .center { text-align: center; }
-
-        /* --- Specialization Horizontal Scroll --- */
+        /* --- Scrolling Cards --- */
         .spec-scroll {
             display: flex;
             overflow-x: auto;
@@ -139,27 +132,19 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
         }
 
-        .spec-img { 
-            height: 200px; 
-            background-size: cover; 
-            background-position: center; 
-            border-bottom: 3px solid var(--accent-gold);
-        }
-
+        .spec-img { height: 200px; background-size: cover; background-position: center; border-bottom: 3px solid var(--accent-gold); }
         .spec-content { padding: 25px; }
-        .spec-content h3 { font-family: 'Playfair Display', serif; color: var(--nature-green); font-size: 1.3rem; margin-bottom: 10px; }
 
-        /* --- Dark Bar Panel --- */
+        /* --- Dark Bar Section --- */
         .dark-panel {
             background: var(--primary-dark);
             color: white;
             padding: 80px 30px;
             margin: 0 20px;
             border-radius: 30px;
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=1200&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
             text-align: center;
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=1200');
+            background-size: cover;
         }
 
         .btn-gold {
@@ -171,8 +156,6 @@
             display: inline-block;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.8rem;
             margin-top: 25px;
         }
 
@@ -206,7 +189,11 @@
     </nav>
 
     <header class="hero-slider">
-        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1600&auto=format&fit=crop');"></div> <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1600&auto=format&fit=crop');"></div> <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1589187151032-573a91317445?q=80&w=1600&auto=format&fit=crop');"></div> <div class="hero-overlay">
+        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1600');"></div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1600');"></div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1589187151032-573a91317445?q=80&w=1600');"></div>
+        
+        <div class="hero-overlay">
             <h1 class="hero-title">PARTH RBR</h1>
             <div class="gold-line"></div>
             <p class="hero-subtitle">Homely Satisfaction • Managed by Women</p>
@@ -219,21 +206,21 @@
         <div class="usp-item"><i class="fa-solid fa-shield-heart"></i>Safe Sanctuary</div>
     </div>
 
-    <section class="section center">
+    <section class="section center" style="padding: 60px 25px;">
         <h2 style="font-family: 'Playfair Display'; font-size: 1.8rem;">The Spirit of Konkan</h2>
         <div class="gold-line"></div>
-        <p style="color: #666; max-width: 500px; margin: 0 auto;">Experience 2 acres of silent Mango and Kaju groves at the Titha Flyover junction.</p>
+        <p style="color: #666; margin-bottom: 20px;">Experience 2 acres of silent Mango and Kaju groves at the Titha Flyover junction.</p>
         
         <div class="spec-scroll">
             <div class="spec-card">
-                <div class="spec-img" style="background-image: url('https://images.unsplash.com/photo-1626132646529-500337552978?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="spec-img" style="background-image: url('https://images.unsplash.com/photo-1626132646529-500337552978?q=80&w=800');"></div>
                 <div class="spec-content">
                     <h3>Authentic Dining</h3>
                     <p style="font-size: 0.85rem; color: #555;">Traditional recipes by specialized chefs with zero artificial colors.</p>
                 </div>
             </div>
             <div class="spec-card">
-                <div class="spec-img" style="background-image: url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=800&auto=format&fit=crop');"></div>
+                <div class="spec-img" style="background-image: url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=800');"></div>
                 <div class="spec-content">
                     <h3>Premium Rooms</h3>
                     <p style="font-size: 0.85rem; color: #555;">AC and Non-AC stays designed for travelers seeking complete silence.</p>
@@ -244,18 +231,9 @@
 
     <div class="dark-panel">
         <h2 style="color: var(--accent-gold); font-family: 'Playfair Display'; font-size: 2rem;">Premium Bar</h2>
-        <p style="opacity: 0.9; max-width: 400px; margin: 0 auto;">The widest range of liquors in a family-friendly environment on NH 66.</p>
-        <div class="gold-line"></div>
+        <p style="opacity: 0.9;">The widest range of liquors in a family-friendly environment.</p>
         <a href="tel:+919987456703" class="btn-gold">Call Now</a>
     </div>
-
-    <section class="section center" style="padding-bottom: 20px;">
-        <i class="fa-solid fa-location-dot" style="font-size: 2.5rem; color: var(--nature-green); margin-bottom: 15px;"></i>
-        <p style="font-size: 0.9rem; color: #555;">
-            Mumbai - Goa Highway NH 66, Titha Flyover,<br>
-            Jambhulgaon, Maharashtra 416810
-        </p>
-    </section>
 
     <div class="spacer"></div>
 
@@ -274,7 +252,4 @@
             slides[currentSlide].classList.add('active');
         }
         setInterval(nextSlide, 5000);
-    </script>
-
-</body>
-</html>
+    </script
