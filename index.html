@@ -26,7 +26,7 @@
             overflow-x: hidden;
         }
 
-        /* --- Premium Header --- */
+        /* --- Header --- */
         .top-nav {
             position: absolute;
             top: 0;
@@ -39,14 +39,14 @@
         }
 
         .header-logo {
-            width: 110px;
+            width: 100px;
             background: #fff;
-            padding: 8px;
+            padding: 5px;
             border-radius: 4px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
-        /* --- Smooth Hero Slider --- */
+        /* --- Seamless Hero Slider --- */
         .hero-slider {
             height: 75vh;
             position: relative;
@@ -63,8 +63,8 @@
             background-size: cover;
             background-position: center;
             opacity: 0;
-            transition: opacity 1.2s ease-in-out;
             z-index: 1;
+            transition: opacity 1.5s ease-in-out;
         }
 
         .slide.active { 
@@ -76,7 +76,7 @@
             position: absolute;
             bottom: 0;
             z-index: 10;
-            background: linear-gradient(transparent 20%, rgba(0,0,0,0.85) 100%);
+            background: linear-gradient(transparent 10%, rgba(0,0,0,0.9) 100%);
             width: 100%;
             padding: 40px 20px;
             color: white;
@@ -109,11 +109,7 @@
 
         .usp-item i { font-size: 1.2rem; display: block; margin-bottom: 6px; color: var(--accent-gold); }
 
-        /* --- Content Sections --- */
-        .section { padding: 50px 20px; }
-        .center { text-align: center; }
-
-        /* --- Scrolling Cards --- */
+        /* --- Specialized Scrolling --- */
         .spec-scroll {
             display: flex;
             overflow-x: auto;
@@ -144,7 +140,7 @@
             border-radius: 20px;
         }
 
-        /* --- Navigation Dock --- */
+        /* --- Mobile Navigation --- */
         .nav-dock {
             position: fixed;
             bottom: 15px;
@@ -177,41 +173,41 @@
 <body>
 
     <nav class="top-nav">
-        <img src="parth logo.jpg" alt="Parth Logo" class="header-logo">
+        <div style="color:white; font-family:'Playfair Display'; font-weight:bold; border:2px solid var(--accent-gold); padding:5px 15px; background:rgba(0,0,0,0.5);">PARTH RBR</div>
     </nav>
 
     <header class="hero-slider">
-        <div class="slide active" style="background-image: url('https://lh5.googleusercontent.com/p/AF1QipN3-uOq4f6Y_0qPq6Fm9W_M8A7G5T6J_kL0xI0=w1000');"></div> <div class="slide" style="background-image: url('https://lh5.googleusercontent.com/p/AF1QipM7E6M6y5D-WvR9N-L1bL_X_j_f_G_Y8M_k-h_I=w1000');"></div> <div class="slide" style="background-image: url('https://lh5.googleusercontent.com/p/AF1QipO-R-Y_x_m-T-L_W-X_j_f_G_Y8M_k-h_I=w1000');"></div> <div class="slide" style="background-image: url('https://lh5.googleusercontent.com/p/AF1QipN_V-X_x_m-T-L_W-X_j_f_G_Y8M_k-h_I=w1000');"></div> <div class="hero-overlay">
+        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=1200');"></div> <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1589187151032-573a91317445?auto=format&fit=crop&q=80&w=1200');"></div> <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&q=80&w=1200');"></div> <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=1200');"></div> <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=1200');"></div> <div class="hero-overlay">
             <h1 class="hero-title">PARTH RBR</h1>
             <div class="gold-line"></div>
-            <p style="font-style: italic; font-weight: 300;">Homely Satisfaction, Managed by Women.</p>
+            <p style="font-style: italic; font-weight: 300; font-size: 0.9rem;">Homely Satisfaction, Managed by Women.</p>
         </div>
     </header>
 
     <div class="usp-container">
-        <div class="usp-item"><i class="fa-solid fa-person-dress"></i>Women Led</div>
+        <div class="usp-item"><i class="fa-solid fa-person-dress"></i>Women Managed</div>
         <div class="usp-item"><i class="fa-solid fa-leaf"></i>No Chemicals</div>
-        <div class="usp-item"><i class="fa-solid fa-user-shield"></i>Safe Sanctuary</div>
+        <div class="usp-item"><i class="fa-solid fa-shield-heart"></i>Safe Haven</div>
     </div>
 
     <section class="section">
-        <h2 class="center">Authentic Konkan</h2>
+        <h2 class="center">Konkan Spirit</h2>
         <div class="gold-line"></div>
-        <p class="center" style="font-size: 0.9rem; color: #555; max-width: 320px; margin: 0 auto 20px;">Nestled in 2 acres of Mango and Kaju groves at the Titha Flyover junction.</p>
+        <p class="center" style="font-size: 0.85rem; color: #555; margin-bottom: 20px;">Nestled in 2 acres of Mango and Kaju groves at the Titha Flyover junction.</p>
         
         <div class="spec-scroll">
             <div class="spec-card">
-                <div class="spec-img" style="background-image: url('https://lh5.googleusercontent.com/p/AF1QipN_V-X_x_m-T-L_W-X_j_f_G_Y8M_k-h_I=w600');"></div>
+                <div class="spec-img" style="background-image: url('https://images.unsplash.com/photo-1626132646529-500337552978?auto=format&fit=crop&q=80&w=600');"></div>
                 <div class="spec-content">
-                    <h3>Traditional Food</h3>
-                    <p style="font-size: 0.82rem;">Homely satisfaction with specialized chefs. Purely traditional recipes with no artificial colors.</p>
+                    <h3>Homely Food</h3>
+                    <p style="font-size: 0.8rem;">Traditional recipes by specialized chefs. Pure satisfaction with no artificial colors.</p>
                 </div>
             </div>
             <div class="spec-card">
-                <div class="spec-img" style="background-image: url('https://lh5.googleusercontent.com/p/AF1QipM7E6M6y5D-WvR9N-L1bL_X_j_f_G_Y8M_k-h_I=w600');"></div>
+                <div class="spec-img" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600');"></div>
                 <div class="spec-content">
-                    <h3>Spacious Lodging</h3>
-                    <p style="font-size: 0.82rem;">AC and Non-AC rooms designed for complete peace and silence away from the highway.</p>
+                    <h3>Peaceful Stay</h3>
+                    <p style="font-size: 0.8rem;">Spacious AC and Non-AC rooms designed for travelers seeking complete silence.</p>
                 </div>
             </div>
         </div>
@@ -219,14 +215,14 @@
 
     <div class="dark-panel center">
         <h2 style="color: var(--accent-gold); font-family: 'Playfair Display';">Premium Bar</h2>
-        <p style="margin: 15px 0; font-size: 0.95rem; opacity: 0.9;">A safe and sophisticated environment with the widest range of liquors for your tours.</p>
+        <p style="margin: 15px 0; font-size: 0.9rem; opacity: 0.8;">The widest range of liquors in a safe, family-friendly environment.</p>
         <div class="gold-line"></div>
-        <a href="tel:+919987456703" class="btn-gold">Call Now</a>
+        <a href="tel:+919987456703" class="btn-gold">Enquire Now</a>
     </div>
 
-    <section class="section center" style="padding-bottom: 20px;">
-        <i class="fa-solid fa-location-dot" style="font-size: 2rem; color: var(--nature-green); margin-bottom: 10px;"></i>
-        <p style="font-size: 0.85rem; color: #555;">
+    <section class="section center" style="padding-bottom: 30px;">
+        <i class="fa-solid fa-map-pin" style="font-size: 1.5rem; color: var(--nature-green); margin-bottom: 10px;"></i>
+        <p style="font-size: 0.8rem; color: #555;">
             Mumbai - Goa Highway NH 66, Titha Flyover,<br>
             Jambhulgaon, Maharashtra 416810
         </p>
@@ -238,7 +234,7 @@
         <a href="#" class="nav-link"><i class="fa-solid fa-house"></i>Home</a>
         <a href="tel:+919987456703" class="nav-link"><i class="fa-solid fa-phone"></i>Call</a>
         <a href="https://wa.me/919987456703" class="nav-link"><i class="fa-brands fa-whatsapp"></i>Chat</a>
-        <a href="https://share.google/A8innDKwD6UXdOhOD" class="nav-link"><i class="fa-solid fa-map-location-dot"></i>Locate</a>
+        <a href="https://share.google/A8innDKwD6UXdOhOD" class="nav-link"><i class="fa-solid fa-location-arrow"></i>Locate</a>
     </nav>
 
     <script>
